@@ -9,9 +9,8 @@ function App() {
       <div className="app-container">
         <main className="app-main">
           <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/" element={<Navigate to="/home" replace />} />
-            <Route path="*" element={<Navigate to="/home" replace />} />
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
       </div>
