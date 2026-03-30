@@ -1,0 +1,9 @@
+/// <reference types="vite/client" />
+
+import "csstype";
+
+declare module "csstype" {
+  interface Properties {
+    [key: `--${string}`]: string | number;
+  }
+}

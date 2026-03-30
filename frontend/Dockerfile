@@ -1,0 +1,20 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+ARG VITE_API_URL
+ARG VITE_AGENT_URL
+ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_AGENT_URL=$VITE_AGENT_URL
+RUN npm run build
+
+# Use serve package to serve the built app
+RUN npm install -g serve
+
+EXPOSE 3000
+
+CMD ["serve", "-s", "build", "-l", "3000"]
