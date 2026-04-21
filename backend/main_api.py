@@ -6016,13 +6016,11 @@ def get_model_leaderboard(database: Session = Depends(get_db)) -> list:
             measures = database.query(Measure).filter(Measure.measurand_id == model.id).all()
             
             # Initialize metric totals
+            levels = ["a1", "a2", "b1", "b2", "c1", "c2"]
             metric_totals = {
-                'a1_total': 0.0,
-                'a2_total': 0.0,
-                'b1_total': 0.0,
-                'b2_total': 0.0,
-                'c1_total': 0.0,
-                'c2_total': 0.0
+                f"{level}_{category}": 0.0
+                for level in levels
+                for category in ["total", "vocab", "grammar", "rc", "lc"]
             }
             
             # Aggregate measures by metric category
@@ -6037,21 +6035,24 @@ def get_model_leaderboard(database: Session = Depends(get_db)) -> list:
                         except (ValueError, TypeError):
                             value = 0.0
 
-                        # Only use exact CEFR total metrics
-                        metric_name_normalized = metric.name.strip().lower()
+                        metric_name_normalized = metric.name.strip().lower().replace("_", " ").replace("-", " ")
 
-                        if metric_name_normalized == 'a1 total':
-                            metric_totals['a1_total'] = value
-                        elif metric_name_normalized == 'a2 total':
-                            metric_totals['a2_total'] = value
-                        elif metric_name_normalized == 'b1 total':
-                            metric_totals['b1_total'] = value
-                        elif metric_name_normalized == 'b2 total':
-                            metric_totals['b2_total'] = value
-                        elif metric_name_normalized == 'c1 total':
-                            metric_totals['c1_total'] = value
-                        elif metric_name_normalized == 'c2 total':
-                            metric_totals['c2_total'] = value
+                        level = next((lvl for lvl in levels if lvl in metric_name_normalized), None)
+                        category = None
+
+                        if "total" in metric_name_normalized:
+                            category = "total"
+                        elif "vocabulary" in metric_name_normalized or "vocab" in metric_name_normalized:
+                            category = "vocab"
+                        elif "grammar" in metric_name_normalized:
+                            category = "grammar"
+                        elif "reading comprehension" in metric_name_normalized or " rc" in metric_name_normalized:
+                            category = "rc"
+                        elif "listening comprehension" in metric_name_normalized or " lc" in metric_name_normalized:
+                            category = "lc"
+
+                        if level and category:
+                            metric_totals[f"{level}_{category}"] = value
             
             # Build the result row
             model_name = getattr(model, 'name', 'Unknown')
@@ -6068,12 +6069,7 @@ def get_model_leaderboard(database: Session = Depends(get_db)) -> list:
                 'data': model_data,  # Size
                 'source': model_source,  # Family
                 'licensing': licensing_value,  # Closed_Open
-                'a1_total': round(metric_totals['a1_total'], 2),
-                'a2_total': round(metric_totals['a2_total'], 2),
-                'b1_total': round(metric_totals['b1_total'], 2),
-                'b2_total': round(metric_totals['b2_total'], 2),
-                'c1_total': round(metric_totals['c1_total'], 2),
-                'c2_total': round(metric_totals['c2_total'], 2)
+                **{key: round(value, 2) for key, value in metric_totals.items()}
             })
         
         return result
