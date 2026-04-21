@@ -162,6 +162,11 @@ export const BarChartComponent: React.FC<Props> = ({
           <XAxis
             type={orientation === "horizontal" ? "number" : "category"}
             dataKey={orientation === "horizontal" ? actualDataField : actualLabelField}
+            interval={0}
+            angle={-90}
+            textAnchor="end"
+            height={140}
+            tick={{ fontSize: 11 }}
           />
           <YAxis
             type={orientation === "horizontal" ? "category" : "number"}
