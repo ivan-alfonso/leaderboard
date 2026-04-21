@@ -6031,27 +6031,27 @@ def get_model_leaderboard(database: Session = Depends(get_db)) -> list:
                     # Get the metric
                     metric = database.query(Metric).filter(Metric.id == measure.metric_id).first()
                     if metric and hasattr(metric, 'name') and metric.name:
-                        metric_name_lower = metric.name.lower()
-                        
                         # Parse the value (it's stored as string now)
                         try:
                             value = float(measure.value) if measure.value else 0.0
                         except (ValueError, TypeError):
                             value = 0.0
-                        
-                        # Categorize based on metric name
-                        if 'a1' in metric_name_lower:
-                            metric_totals['a1_total'] += value
-                        elif 'a2' in metric_name_lower:
-                            metric_totals['a2_total'] += value
-                        elif 'b1' in metric_name_lower:
-                            metric_totals['b1_total'] += value
-                        elif 'b2' in metric_name_lower:
-                            metric_totals['b2_total'] += value
-                        elif 'c1' in metric_name_lower:
-                            metric_totals['c1_total'] += value
-                        elif 'c2' in metric_name_lower:
-                            metric_totals['c2_total'] += value
+
+                        # Only use exact CEFR total metrics
+                        metric_name_normalized = metric.name.strip().lower()
+
+                        if metric_name_normalized == 'a1 total':
+                            metric_totals['a1_total'] = value
+                        elif metric_name_normalized == 'a2 total':
+                            metric_totals['a2_total'] = value
+                        elif metric_name_normalized == 'b1 total':
+                            metric_totals['b1_total'] = value
+                        elif metric_name_normalized == 'b2 total':
+                            metric_totals['b2_total'] = value
+                        elif metric_name_normalized == 'c1 total':
+                            metric_totals['c1_total'] = value
+                        elif metric_name_normalized == 'c2 total':
+                            metric_totals['c2_total'] = value
             
             # Build the result row
             model_name = getattr(model, 'name', 'Unknown')
