@@ -5,7 +5,7 @@ import { ModelMetricsBarChart } from "../components/charts/ModelMetricsBarChart"
 const Home: React.FC = () => {
   return (
     <div id="5WFQu3cZBn89Z4xa" style={{"width": "auto", "height": "100vh", "padding": "0", "margin": "0", "position": "static", "textAlign": "left", "zIndex": 0, "backgroundColor": "#f8fafc", "color": "#1e293b", "--chart-color-palette": "default"}}>
-    <section id="ic1xf" className="assistant-hero" style={{"padding": "64px 48px", "background": "linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%)", "color": "#ffffff", "borderRadius": "16px", "margin": "24px", "textAlign": "center", "--chart-color-palette": "default"}}>
+    <section id="ic1xf" className="assistant-hero" style={{"padding": "64px 48px", "background": "linear-gradient(135deg, #3b4f68 0%, #7c93b6 100%)", "color": "#ffffff", "borderRadius": "16px", "margin": "24px", "textAlign": "center", "--chart-color-palette": "default"}}>
       {/* Logos at the top */}
       <div style={{"display": "flex", "justifyContent": "center", "alignItems": "center", "gap": "40px", "marginBottom": "32px", "flexWrap": "wrap"}}>
         <img 
