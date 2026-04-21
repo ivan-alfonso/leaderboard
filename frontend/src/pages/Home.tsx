@@ -5,7 +5,7 @@ import { ModelMetricsBarChart } from "../components/charts/ModelMetricsBarChart"
 const Home: React.FC = () => {
   return (
     <div id="5WFQu3cZBn89Z4xa" style={{"width": "auto", "height": "100vh", "padding": "0", "margin": "0", "position": "static", "textAlign": "left", "zIndex": 0, "backgroundColor": "#f8fafc", "color": "#1e293b", "--chart-color-palette": "default"}}>
-    <section id="ic1xf" className="assistant-hero" style={{"padding": "64px 48px", "background": "linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%)", "color": "#ffffff", "borderRadius": "16px", "margin": "24px", "textAlign": "center", "--chart-color-palette": "default"}}>
+    <section id="ic1xf" className="assistant-hero" style={{"padding": "64px 48px", "background": "linear-gradient(135deg, #3b4f68 0%, #7c93b6 100%)", "color": "#ffffff", "borderRadius": "16px", "margin": "24px", "textAlign": "center", "--chart-color-palette": "default"}}>
       {/* Logos at the top */}
       <div style={{"display": "flex", "justifyContent": "center", "alignItems": "center", "gap": "40px", "marginBottom": "32px", "flexWrap": "wrap"}}>
         <img 
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
       </section>
 
       <TableBlock id="i23pz" styles={{"width": "100%", "minHeight": "300px", "margin": "0 0 24px 0", "borderRadius": "12px", "--chart-color-palette": "default"}} title="Model Leaderboard" options={{"showHeader": true, "stripedRows": true, "showPagination": true, "rowsPerPage": 10, "actionButtons": false, "columns": [{"label": "LLM", "column_type": "field", "field": "name", "type": "str", "required": true}, {"label": "Size", "column_type": "field", "field": "data", "type": "str", "required": false}, {"label": "Family", "column_type": "field", "field": "source", "type": "str", "required": false}, {"label": "Closed_Open", "column_type": "field", "field": "licensing", "type": "str", "required": false}, {"label": "A1_total", "column_type": "field", "field": "a1_total", "type": "number", "required": false}, {"label": "A2_total", "column_type": "field", "field": "a2_total", "type": "number", "required": false}, {"label": "B1_total", "column_type": "field", "field": "b1_total", "type": "number", "required": false}, {"label": "B2_total", "column_type": "field", "field": "b2_total", "type": "number", "required": false}, {"label": "C1_total", "column_type": "field", "field": "c1_total", "type": "number", "required": false}, {"label": "C2_total", "column_type": "field", "field": "c2_total", "type": "number", "required": false}]}} dataBinding={{"entity": "Model", "endpoint": "/model/leaderboard"}} />
-      <ModelMetricsBarChart id="metrics-chart" title="Model Performance Comparison" styles={{"margin": "0"}} maxModels={15} />
+      <ModelMetricsBarChart id="metrics-chart" title="Model Performance Comparison" styles={{"margin": "0"}} maxModels={54} />
     </main>
     <footer id="iraev" className="assistant-footer" style={{"padding": "32px 48px", "backgroundColor": "#0f172a", "color": "#94a3b8", "display": "flex", "justifyContent": "space-between", "alignItems": "center", "marginTop": "24px", "fontFamily": "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif", "flexWrap": "wrap", "gap": "20px", "--chart-color-palette": "default"}}>
       <div id="Component">

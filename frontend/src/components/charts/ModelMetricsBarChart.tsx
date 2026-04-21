@@ -24,6 +24,7 @@ interface ModelMetric {
   b2_total: number;
   c1_total: number;
   c2_total: number;
+  [key: string]: string | number;
 }
 
 interface Props {
@@ -113,26 +114,45 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
       return size >= filters.sizeRange[0] && size <= filters.sizeRange[1];
     });
 
+    const categorySuffix =
+    filters.testCategory === "All" || filters.testCategory === "Total"
+      ? "total"
+      : filters.testCategory.toLowerCase();
+
     // Filter by CEFR level and test category
     if (filters.cefrLevel !== "All" || filters.testCategory !== "All") {
       filtered = filtered.map((model) => {
         const filteredModel = { ...model };
-        
-        // Determine which metrics to show based on filters
-        const showA1 = filters.cefrLevel === "All" || filters.cefrLevel === "A1";
-        const showA2 = filters.cefrLevel === "All" || filters.cefrLevel === "A2";
-        const showB1 = filters.cefrLevel === "All" || filters.cefrLevel === "B1";
-        const showB2 = filters.cefrLevel === "All" || filters.cefrLevel === "B2";
-        const showC1 = filters.cefrLevel === "All" || filters.cefrLevel === "C1";
-        const showC2 = filters.cefrLevel === "All" || filters.cefrLevel === "C2";
 
-        // Zero out metrics that don't match the filter
-        if (!showA1) filteredModel.a1_total = 0;
-        if (!showA2) filteredModel.a2_total = 0;
-        if (!showB1) filteredModel.b1_total = 0;
-        if (!showB2) filteredModel.b2_total = 0;
-        if (!showC1) filteredModel.c1_total = 0;
-        if (!showC2) filteredModel.c2_total = 0;
+        filteredModel.a1_total =
+          filters.cefrLevel === "All" || filters.cefrLevel === "A1"
+            ? Number(model[`a1_${categorySuffix}`] ?? 0)
+            : 0;
+
+        filteredModel.a2_total =
+          filters.cefrLevel === "All" || filters.cefrLevel === "A2"
+            ? Number(model[`a2_${categorySuffix}`] ?? 0)
+            : 0;
+
+        filteredModel.b1_total =
+          filters.cefrLevel === "All" || filters.cefrLevel === "B1"
+            ? Number(model[`b1_${categorySuffix}`] ?? 0)
+            : 0;
+
+        filteredModel.b2_total =
+          filters.cefrLevel === "All" || filters.cefrLevel === "B2"
+            ? Number(model[`b2_${categorySuffix}`] ?? 0)
+            : 0;
+
+        filteredModel.c1_total =
+          filters.cefrLevel === "All" || filters.cefrLevel === "C1"
+            ? Number(model[`c1_${categorySuffix}`] ?? 0)
+            : 0;
+
+        filteredModel.c2_total =
+          filters.cefrLevel === "All" || filters.cefrLevel === "C2"
+            ? Number(model[`c2_${categorySuffix}`] ?? 0)
+            : 0;
 
         return filteredModel;
       });
@@ -204,6 +224,19 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
   if (filters.cefrLevel === "All" || filters.cefrLevel === "C1") visibleMetrics.push("c1_total");
   if (filters.cefrLevel === "All" || filters.cefrLevel === "C2") visibleMetrics.push("c2_total");
 
+  const metricNameSuffix =
+    filters.testCategory === "All" || filters.testCategory === "Total"
+      ? "Total"
+      : filters.testCategory === "Vocab"
+        ? "Vocabulary"
+        : filters.testCategory === "RC"
+          ? "Reading Comprehension"
+          : filters.testCategory === "LC"
+            ? "Listening Comprehension"
+            : "Grammar";
+
+  const getMetricLabel = (level: string) => `${level} ${metricNameSuffix}`;
+
   return (
     <div id={id} style={containerStyle}>
       <ModelFilterPanel 
@@ -254,7 +287,7 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
                 dataKey="name" 
-                angle={-45}
+                angle={-90}
                 textAnchor="end"
                 height={100}
                 interval={0}
@@ -282,7 +315,7 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               {visibleMetrics.includes("a1_total") && (
                 <Bar 
                   dataKey="a1_total" 
-                  name={metricLabels.a1_total} 
+                  name={getMetricLabel("A1")}
                   fill={metricColors.a1_total}
                   radius={[4, 4, 0, 0]}
                 />
@@ -290,7 +323,7 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               {visibleMetrics.includes("a2_total") && (
                 <Bar 
                   dataKey="a2_total" 
-                  name={metricLabels.a2_total} 
+                  name={getMetricLabel("A2")}
                   fill={metricColors.a2_total}
                   radius={[4, 4, 0, 0]}
                 />
@@ -298,7 +331,7 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               {visibleMetrics.includes("b1_total") && (
                 <Bar 
                   dataKey="b1_total" 
-                  name={metricLabels.b1_total} 
+                  name={getMetricLabel("B1")}
                   fill={metricColors.b1_total}
                   radius={[4, 4, 0, 0]}
                 />
@@ -306,7 +339,7 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               {visibleMetrics.includes("b2_total") && (
                 <Bar 
                   dataKey="b2_total" 
-                  name={metricLabels.b2_total} 
+                  name={getMetricLabel("B2")}
                   fill={metricColors.b2_total}
                   radius={[4, 4, 0, 0]}
                 />
@@ -314,7 +347,7 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               {visibleMetrics.includes("c1_total") && (
                 <Bar 
                   dataKey="c1_total" 
-                  name={metricLabels.c1_total} 
+                  name={getMetricLabel("C1")}
                   fill={metricColors.c1_total}
                   radius={[4, 4, 0, 0]}
                 />
@@ -322,7 +355,7 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               {visibleMetrics.includes("c2_total") && (
                 <Bar 
                   dataKey="c2_total" 
-                  name={metricLabels.c2_total} 
+                  name={getMetricLabel("C2")}
                   fill={metricColors.c2_total}
                   radius={[4, 4, 0, 0]}
                 />
