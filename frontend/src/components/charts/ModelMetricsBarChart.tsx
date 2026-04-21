@@ -34,22 +34,14 @@ interface Props {
   maxModels?: number; // Limit number of models shown
 }
 
+// const metricColors = {
 const metricColors = {
-  a1_total: "#10b981", // Emerald
-  a2_total: "#14b8a6", // Teal
-  b1_total: "#3b82f6", // Blue
-  b2_total: "#6366f1", // Indigo
-  c1_total: "#8b5cf6", // Violet
-  c2_total: "#ec4899", // Pink
-};
-
-const metricLabels = {
-  a1_total: "A1 Total",
-  a2_total: "A2 Total",
-  b1_total: "B1 Total",
-  b2_total: "B2 Total",
-  c1_total: "C1 Total",
-  c2_total: "C2 Total",
+  a1_total: "#a39a16", // green
+  a2_total: "#ca8a04", // amber
+  b1_total: "#dc2626", // red
+  b2_total: "#2563eb", // blue
+  c1_total: "#7c3aed", // violet
+  c2_total: "#111827", // near-black
 };
 
 export const ModelMetricsBarChart: React.FC<Props> = ({
