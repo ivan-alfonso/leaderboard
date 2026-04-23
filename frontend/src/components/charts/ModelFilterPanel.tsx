@@ -1,4 +1,5 @@
 import React, { CSSProperties } from "react";
+import { useTheme } from "../../contexts/ThemeContext";
 
 export interface ModelFilters {
   cefrLevel: string;
@@ -19,17 +20,20 @@ export const ModelFilterPanel: React.FC<Props> = ({
   onFiltersChange,
   styles,
 }) => {
+  const { colors } = useTheme();
+
   const handleFilterChange = (key: keyof ModelFilters, value: any) => {
     onFiltersChange({ ...filters, [key]: value });
   };
 
   const panelStyle: CSSProperties = {
-    backgroundColor: "#ffffff",
+    backgroundColor: colors.surface,
     borderRadius: "16px",
     padding: "32px",
-    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+    boxShadow: colors.shadow,
     marginBottom: "24px",
-    border: "1px solid #e5e7eb",
+    border: `1px solid ${colors.border}`,
+    transition: "background-color 0.3s ease, border-color 0.3s ease",
     ...styles,
   };
 
@@ -39,26 +43,26 @@ export const ModelFilterPanel: React.FC<Props> = ({
 
   const labelStyle: CSSProperties = {
     display: "block",
-    fontSize: "13px",
-    fontWeight: "700",
-    color: "#374151",
+    fontSize: "12px",
+    fontWeight: 700,
+    color: colors.textSecondary,
     marginBottom: "10px",
     textTransform: "uppercase",
-    letterSpacing: "0.5px",
+    letterSpacing: "0.05em",
   };
 
   const selectStyle: CSSProperties = {
     width: "100%",
     padding: "10px 14px",
     fontSize: "14px",
-    border: "2px solid #e5e7eb",
+    border: `1px solid ${colors.border}`,
     borderRadius: "8px",
-    backgroundColor: "#f9fafb",
-    color: "#1f2937",
+    backgroundColor: colors.inputBg,
+    color: colors.textPrimary,
     cursor: "pointer",
     outline: "none",
-    transition: "all 0.2s ease",
-    fontWeight: "500",
+    transition: "all 0.15s ease",
+    fontWeight: 500,
   };
 
   const sliderContainerStyle: CSSProperties = {
@@ -69,9 +73,9 @@ export const ModelFilterPanel: React.FC<Props> = ({
 
   const sliderStyle: CSSProperties = {
     width: "100%",
-    height: "8px",
-    borderRadius: "4px",
-    background: "#e5e7eb",
+    height: "6px",
+    borderRadius: "3px",
+    background: colors.border,
     outline: "none",
     WebkitAppearance: "none",
     cursor: "pointer",
@@ -79,35 +83,36 @@ export const ModelFilterPanel: React.FC<Props> = ({
 
   const rangeDisplayStyle: CSSProperties = {
     fontSize: "13px",
-    color: "#6b7280",
+    color: colors.textMuted,
     textAlign: "center",
-    fontWeight: "500",
+    fontWeight: 500,
   };
 
   return (
     <div style={panelStyle}>
-      <h3 style={{ 
-        fontSize: "1.25rem", 
-        fontWeight: "800", 
-        color: "#1f2937", 
+      <h3 style={{
+        fontSize: "1.1rem",
+        fontWeight: 700,
+        color: colors.textPrimary,
+        marginTop: 0,
         marginBottom: "24px",
-        borderBottom: "3px solid #2563eb",
         paddingBottom: "12px",
-        letterSpacing: "-0.01em"
+        borderBottom: `2px solid ${colors.accent}`,
+        letterSpacing: "0.02em",
+        textTransform: "uppercase",
       }}>
-        FILTER MODELS
+        Filter Models
       </h3>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "24px" }}>
-        {/* CEFR Level Filter */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
         <div style={filterGroupStyle}>
           <label style={labelStyle}>CEFR Level</label>
           <select
             style={selectStyle}
             value={filters.cefrLevel}
             onChange={(e) => handleFilterChange("cefrLevel", e.target.value)}
-            onFocus={(e) => e.currentTarget.style.borderColor = "#2563eb"}
-            onBlur={(e) => e.currentTarget.style.borderColor = "#e5e7eb"}
+            onFocus={(e) => e.currentTarget.style.borderColor = colors.accent}
+            onBlur={(e) => e.currentTarget.style.borderColor = colors.border}
           >
             <option value="All">All</option>
             <option value="A1">A1</option>
@@ -119,15 +124,14 @@ export const ModelFilterPanel: React.FC<Props> = ({
           </select>
         </div>
 
-        {/* Test Category Filter */}
         <div style={filterGroupStyle}>
           <label style={labelStyle}>Test Category</label>
           <select
             style={selectStyle}
             value={filters.testCategory}
             onChange={(e) => handleFilterChange("testCategory", e.target.value)}
-            onFocus={(e) => e.currentTarget.style.borderColor = "#2563eb"}
-            onBlur={(e) => e.currentTarget.style.borderColor = "#e5e7eb"}
+            onFocus={(e) => e.currentTarget.style.borderColor = colors.accent}
+            onBlur={(e) => e.currentTarget.style.borderColor = colors.border}
           >
             <option value="All">All</option>
             <option value="Vocab">Vocabulary</option>
@@ -138,15 +142,14 @@ export const ModelFilterPanel: React.FC<Props> = ({
           </select>
         </div>
 
-        {/* Licensing Type Filter */}
         <div style={filterGroupStyle}>
           <label style={labelStyle}>Model Type</label>
           <select
             style={selectStyle}
             value={filters.licensingType}
             onChange={(e) => handleFilterChange("licensingType", e.target.value)}
-            onFocus={(e) => e.currentTarget.style.borderColor = "#2563eb"}
-            onBlur={(e) => e.currentTarget.style.borderColor = "#e5e7eb"}
+            onFocus={(e) => e.currentTarget.style.borderColor = colors.accent}
+            onBlur={(e) => e.currentTarget.style.borderColor = colors.border}
           >
             <option value="All">All</option>
             <option value="Open_Source">Open Source</option>
@@ -155,8 +158,7 @@ export const ModelFilterPanel: React.FC<Props> = ({
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginTop: "24px" }}>
-        {/* LLM Size Range Slider */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginTop: "24px" }}>
         <div style={filterGroupStyle}>
           <label style={labelStyle}>LLM Size Range (Billion Parameters)</label>
           <div style={sliderContainerStyle}>
@@ -167,34 +169,28 @@ export const ModelFilterPanel: React.FC<Props> = ({
                 max="1000"
                 step="0.5"
                 value={filters.sizeRange[0]}
-                onChange={(e) => 
+                onChange={(e) =>
                   handleFilterChange("sizeRange", [parseFloat(e.target.value), filters.sizeRange[1]])
                 }
-                onFocus={(e) => e.currentTarget.style.borderColor = "#2563eb"}
-                onBlur={(e) => e.currentTarget.style.borderColor = "#e5e7eb"}
-                style={{
-                  ...selectStyle,
-                  width: "90px",
-                }}
+                onFocus={(e) => e.currentTarget.style.borderColor = colors.accent}
+                onBlur={(e) => e.currentTarget.style.borderColor = colors.border}
+                style={{ ...selectStyle, width: "90px" }}
               />
-              <span style={{ color: "#6b7280", fontWeight: "600" }}>to</span>
+              <span style={{ color: colors.textMuted, fontWeight: 600 }}>to</span>
               <input
                 type="number"
                 min="0"
                 max="1000"
                 step="0.5"
                 value={filters.sizeRange[1]}
-                onChange={(e) => 
+                onChange={(e) =>
                   handleFilterChange("sizeRange", [filters.sizeRange[0], parseFloat(e.target.value)])
                 }
-                onFocus={(e) => e.currentTarget.style.borderColor = "#2563eb"}
-                onBlur={(e) => e.currentTarget.style.borderColor = "#e5e7eb"}
-                style={{
-                  ...selectStyle,
-                  width: "90px",
-                }}
+                onFocus={(e) => e.currentTarget.style.borderColor = colors.accent}
+                onBlur={(e) => e.currentTarget.style.borderColor = colors.border}
+                style={{ ...selectStyle, width: "90px" }}
               />
-              <span style={{ color: "#6b7280", fontWeight: "600" }}>B</span>
+              <span style={{ color: colors.textMuted, fontWeight: 600 }}>B</span>
             </div>
             <input
               type="range"
@@ -202,7 +198,7 @@ export const ModelFilterPanel: React.FC<Props> = ({
               max="1000"
               step="0.5"
               value={filters.sizeRange[0]}
-              onChange={(e) => 
+              onChange={(e) =>
                 handleFilterChange("sizeRange", [parseFloat(e.target.value), filters.sizeRange[1]])
               }
               style={sliderStyle}
@@ -213,7 +209,7 @@ export const ModelFilterPanel: React.FC<Props> = ({
               max="1000"
               step="0.5"
               value={filters.sizeRange[1]}
-              onChange={(e) => 
+              onChange={(e) =>
                 handleFilterChange("sizeRange", [filters.sizeRange[0], parseFloat(e.target.value)])
               }
               style={sliderStyle}
@@ -221,7 +217,6 @@ export const ModelFilterPanel: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Minimum Performance Slider */}
         <div style={filterGroupStyle}>
           <label style={labelStyle}>
             Minimum Performance: {filters.minPerformance}%
@@ -236,7 +231,7 @@ export const ModelFilterPanel: React.FC<Props> = ({
               onChange={(e) => handleFilterChange("minPerformance", parseFloat(e.target.value))}
               style={{
                 ...sliderStyle,
-                background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${filters.minPerformance}%, #e5e7eb ${filters.minPerformance}%, #e5e7eb 100%)`,
+                background: `linear-gradient(to right, ${colors.accent} 0%, ${colors.accent} ${filters.minPerformance}%, ${colors.border} ${filters.minPerformance}%, ${colors.border} 100%)`,
               }}
             />
             <div style={rangeDisplayStyle}>
@@ -246,7 +241,6 @@ export const ModelFilterPanel: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* Reset Filters Button */}
       <div style={{ marginTop: "28px", textAlign: "right" }}>
         <button
           onClick={() => onFiltersChange({
@@ -257,27 +251,24 @@ export const ModelFilterPanel: React.FC<Props> = ({
             minPerformance: 0,
           })}
           style={{
-            padding: "10px 20px",
-            fontSize: "14px",
-            fontWeight: "700",
-            color: "#ffffff",
-            backgroundColor: "#6b7280",
-            border: "none",
+            padding: "9px 20px",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: colors.textPrimary,
+            backgroundColor: "transparent",
+            border: `1px solid ${colors.borderStrong}`,
             borderRadius: "8px",
             cursor: "pointer",
-            transition: "all 0.2s",
-            textTransform: "uppercase",
-            letterSpacing: "0.5px",
+            transition: "all 0.15s ease",
+            letterSpacing: "0.02em",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#4b5563";
-            e.currentTarget.style.transform = "translateY(-1px)";
-            e.currentTarget.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+            e.currentTarget.style.backgroundColor = colors.hoverBg;
+            e.currentTarget.style.borderColor = colors.accent;
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#6b7280";
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "none";
+            e.currentTarget.style.backgroundColor = "transparent";
+            e.currentTarget.style.borderColor = colors.borderStrong;
           }}
         >
           Reset Filters

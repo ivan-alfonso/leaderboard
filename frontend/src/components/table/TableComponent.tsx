@@ -2,6 +2,7 @@ import React, { CSSProperties, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { createPortal } from "react-dom";
 import { useTableContext } from "../../contexts/TableContext";
+import { useTheme } from "../../contexts/ThemeContext";
 import { ColumnFilter } from "./ColumnFilter";
 import { ColumnSort } from "./ColumnSort";
 import "./TableComponent.css";
@@ -79,6 +80,8 @@ export const TableComponent: React.FC<Props> = ({
   styles,
   dataBinding,
 }) => {
+  const { colors } = useTheme();
+
   // Local state for table data
   const [tableData, setTableData] = useState<any[]>(data ?? []);
   const { setSelectedRow, registerTableRefresh } = useTableContext();
@@ -533,16 +536,19 @@ export const TableComponent: React.FC<Props> = ({
     display: "flex",
     flexDirection: "column",
     gap: "16px",
-    backgroundColor: "#ffffff",
-    borderRadius: "8px",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-    padding: "20px",
+    backgroundColor: colors.surface,
+    borderRadius: "16px",
+    boxShadow: colors.shadow,
+    border: `1px solid ${colors.border}`,
+    padding: "24px",
     width: "100%",
     maxWidth: "100%",
     minWidth: 0,
     alignSelf: "stretch",
     boxSizing: "border-box",
     overflow: "hidden",
+    color: colors.textPrimary,
+    transition: "background-color 0.3s ease, border-color 0.3s ease",
     ...styles,
   };
 
@@ -576,7 +582,7 @@ export const TableComponent: React.FC<Props> = ({
   return (
     <div id={id} style={containerStyle} className="table-wrapper">
       {title && (
-        <h3 style={{ margin: 0, color: "#1e293b", fontSize: "18px" }}>{title}</h3>
+        <h3 style={{ margin: 0, color: colors.textPrimary, fontSize: "18px", fontWeight: 700, letterSpacing: "-0.01em" }}>{title}</h3>
       )}
 
       {/* Action Buttons above table */}
@@ -1086,10 +1092,10 @@ export const TableComponent: React.FC<Props> = ({
           style={{
             padding: "24px",
             textAlign: "center",
-            color: "#64748b",
-            border: "1px dashed #cbd5f5",
+            color: colors.textMuted,
+            border: `1px dashed ${colors.borderStrong}`,
             borderRadius: "8px",
-            backgroundColor: "#f8fafc",
+            backgroundColor: colors.inputBg,
           }}
         >
           No data available for{" "}
@@ -1100,7 +1106,7 @@ export const TableComponent: React.FC<Props> = ({
           <table style={tableStyle}>
             {resolvedOptions.showHeader && (
               <thead>
-                <tr style={{ backgroundColor: "#1e293b", color: "#ffffff" }}>
+                <tr style={{ backgroundColor: colors.tableHeaderBg, color: colors.tableHeaderText, borderBottom: `1px solid ${colors.border}` }}>
                   {columns.map((column) => (
                     <th
                       key={`${id}-${column.field}`}
@@ -1147,25 +1153,25 @@ export const TableComponent: React.FC<Props> = ({
                   }}
                   style={{
                     backgroundColor: isSelected
-                      ? "#dbeafe"
+                      ? colors.tableRowSelected
                       : resolvedOptions.stripedRows && rowIndex % 2 === 1
-                        ? "#f8fafc"
-                        : "#ffffff",
-                    borderBottom: "1px solid #e2e8f0",
+                        ? colors.tableRowAlt
+                        : colors.surface,
+                    borderBottom: `1px solid ${colors.border}`,
                     cursor: "pointer",
-                    transition: "background-color 0.2s",
+                    transition: "background-color 0.15s ease",
                   }}
                   onMouseEnter={(e) => {
                     if (!isSelected) {
-                      e.currentTarget.style.backgroundColor = "#f1f5f9";
+                      e.currentTarget.style.backgroundColor = colors.tableRowHover;
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isSelected) {
-                      e.currentTarget.style.backgroundColor = 
+                      e.currentTarget.style.backgroundColor =
                         resolvedOptions.stripedRows && rowIndex % 2 === 1
-                          ? "#f8fafc"
-                          : "#ffffff";
+                          ? colors.tableRowAlt
+                          : colors.surface;
                     }
                   }}
                 >
@@ -1207,8 +1213,8 @@ export const TableComponent: React.FC<Props> = ({
                       <td
                         key={`${id}-row-${rowIndex}-cell-${column.field}`}
                         style={{
-                          padding: "10px 12px",
-                          color: "#1f2937",
+                          padding: "12px",
+                          color: colors.textPrimary,
                           whiteSpace: "nowrap",
                           textOverflow: "ellipsis",
                           overflow: "hidden",
@@ -1288,13 +1294,13 @@ export const TableComponent: React.FC<Props> = ({
             justifyContent: "space-between",
             gap: "12px",
             fontSize: "13px",
-            color: "#475569",
+            color: colors.textMuted,
           }}
         >
           <span>
             Showing {visibleRows.length} of {sortedAndFilteredRows.length} rows
             {Object.keys(columnFilters).length > 0 && (
-              <span style={{ color: "#2563eb", marginLeft: "4px" }}>
+              <span style={{ color: colors.accent, marginLeft: "4px" }}>
                 (filtered from {normalizedRows.length})
               </span>
             )}
@@ -1307,14 +1313,17 @@ export const TableComponent: React.FC<Props> = ({
               style={{
                 padding: "6px 12px",
                 borderRadius: "6px",
-                border: "1px solid #cbd5f5",
-                backgroundColor: currentPage === 1 ? "#e2e8f0" : "#ffffff",
+                border: `1px solid ${colors.border}`,
+                backgroundColor: colors.surface,
+                color: colors.textPrimary,
                 cursor: currentPage === 1 ? "not-allowed" : "pointer",
+                opacity: currentPage === 1 ? 0.5 : 1,
+                fontWeight: 500,
               }}
             >
               Prev
             </button>
-            <span>
+            <span style={{ color: colors.textSecondary }}>
               Page {currentPage} of {totalPages}
             </span>
             <button
@@ -1326,11 +1335,12 @@ export const TableComponent: React.FC<Props> = ({
               style={{
                 padding: "6px 12px",
                 borderRadius: "6px",
-                border: "1px solid #cbd5f5",
-                backgroundColor:
-                  currentPage === totalPages ? "#e2e8f0" : "#ffffff",
-                cursor:
-                  currentPage === totalPages ? "not-allowed" : "pointer",
+                border: `1px solid ${colors.border}`,
+                backgroundColor: colors.surface,
+                color: colors.textPrimary,
+                cursor: currentPage === totalPages ? "not-allowed" : "pointer",
+                opacity: currentPage === totalPages ? 0.5 : 1,
+                fontWeight: 500,
               }}
             >
               Next
