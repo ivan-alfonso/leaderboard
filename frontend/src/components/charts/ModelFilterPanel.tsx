@@ -7,6 +7,7 @@ export interface ModelFilters {
   licensingType: string;
   sizeRange: [number, number];
   minPerformance: number;
+  maxModels: number;
 }
 
 interface Props {
@@ -219,6 +220,45 @@ export const ModelFilterPanel: React.FC<Props> = ({
 
         <div style={filterGroupStyle}>
           <label style={labelStyle}>
+            Models Shown: {filters.maxModels}
+          </label>
+          <div style={sliderContainerStyle}>
+            <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+              <input
+                type="number"
+                min="1"
+                max="100"
+                step="1"
+                value={filters.maxModels}
+                onChange={(e) =>
+                  handleFilterChange("maxModels", Math.max(1, Math.min(100, parseInt(e.target.value) || 1)))
+                }
+                onFocus={(e) => e.currentTarget.style.borderColor = colors.accent}
+                onBlur={(e) => e.currentTarget.style.borderColor = colors.border}
+                style={{ ...selectStyle, width: "90px" }}
+              />
+              <span style={{ color: colors.textMuted, fontWeight: 600 }}>models</span>
+            </div>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              step="1"
+              value={filters.maxModels}
+              onChange={(e) => handleFilterChange("maxModels", parseInt(e.target.value))}
+              style={{
+                ...sliderStyle,
+                background: `linear-gradient(to right, ${colors.accent} 0%, ${colors.accent} ${filters.maxModels}%, ${colors.border} ${filters.maxModels}%, ${colors.border} 100%)`,
+              }}
+            />
+            <div style={rangeDisplayStyle}>
+              Show top {filters.maxModels} model{filters.maxModels !== 1 ? "s" : ""}
+            </div>
+          </div>
+        </div>
+
+        <div style={filterGroupStyle}>
+          <label style={labelStyle}>
             Minimum Performance: {filters.minPerformance}%
           </label>
           <div style={sliderContainerStyle}>
@@ -248,7 +288,8 @@ export const ModelFilterPanel: React.FC<Props> = ({
             testCategory: "All",
             licensingType: "All",
             sizeRange: [0, 1000],
-            minPerformance: 0,
+            minPerformance: 40,
+            maxModels: 20,
           })}
           style={{
             padding: "9px 20px",

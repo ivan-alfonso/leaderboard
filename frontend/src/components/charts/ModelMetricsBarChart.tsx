@@ -4,6 +4,7 @@ import {
   BarChart,
   CartesianGrid,
   Legend,
+  ReferenceLine,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -64,7 +65,8 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
     testCategory: "All",
     licensingType: "All",
     sizeRange: [0, 1000],
-    minPerformance: 0,
+    minPerformance: 40,
+    maxModels: 20,
   });
 
   useEffect(() => {
@@ -166,7 +168,14 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
       });
     }
 
-    filtered = filtered.slice(0, maxModels);
+    // Sort by average of visible level totals (descending) so best models show first
+    filtered.sort((a, b) => {
+      const avg = (m: ModelMetric) =>
+        (m.a1_total + m.a2_total + m.b1_total + m.b2_total + m.c1_total + m.c2_total) / 6;
+      return avg(b) - avg(a);
+    });
+
+    filtered = filtered.slice(0, filters.maxModels);
     setFilteredData(filtered);
   }, [allData, filters, maxModels]);
 
@@ -281,9 +290,9 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               <CartesianGrid strokeDasharray="3 3" stroke={colors.chartGrid} />
               <XAxis
                 dataKey="name"
-                angle={-90}
+                angle={-45}
                 textAnchor="end"
-                height={100}
+                height={80}
                 interval={0}
                 tick={{ fontSize: 11, fill: colors.chartAxis }}
                 stroke={colors.chartAxis}
@@ -308,6 +317,20 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               <Legend
                 wrapperStyle={{ paddingTop: "20px", color: colors.textPrimary }}
                 iconType="square"
+              />
+
+              <ReferenceLine
+                y={33}
+                stroke="#ef4444"
+                strokeDasharray="6 3"
+                strokeWidth={2}
+                label={{
+                  value: "Random baseline (33%)",
+                  position: "insideTopRight",
+                  fill: "#ef4444",
+                  fontSize: 11,
+                  fontWeight: 600,
+                }}
               />
 
               {visibleMetrics.includes("a1_total") && (
