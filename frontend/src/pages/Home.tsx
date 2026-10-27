@@ -200,7 +200,7 @@ const Home: React.FC = () => {
           }}
           dataBinding={{ entity: "Model", endpoint: "/model/leaderboard" }}
         />
-        <ModelMetricsBarChart id="metrics-chart" title="Model Performance Comparison" styles={{ margin: 0 }} maxModels={54} />
+        <ModelMetricsBarChart id="metrics-chart" title="Model Performance Comparison" styles={{ margin: 0 }} maxModels={20} />
       </main>
 
       <footer
