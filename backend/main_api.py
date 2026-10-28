@@ -6022,6 +6022,7 @@ def get_model_leaderboard(database: Session = Depends(get_db)) -> list:
                 for level in levels
                 for category in ["total", "vocab", "grammar", "rc", "lc"]
             }
+            metric_totals["macro_avg"] = 0.0
             
             # Aggregate measures by metric category
             for measure in measures:
@@ -6036,6 +6037,10 @@ def get_model_leaderboard(database: Session = Depends(get_db)) -> list:
                             value = 0.0
 
                         metric_name_normalized = metric.name.strip().lower().replace("_", " ").replace("-", " ")
+
+                        if "macro" in metric_name_normalized:
+                            metric_totals["macro_avg"] = value
+                            continue
 
                         level = next((lvl for lvl in levels if lvl in metric_name_normalized), None)
                         category = None
