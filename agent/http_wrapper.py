@@ -46,6 +46,7 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     replies: list[str]
+    response: str       # AgentSeal (and any single-field consumer) reads this field
     elapsed_s: float
 
 
@@ -105,6 +106,7 @@ async def chat(req: ChatRequest) -> ChatResponse:
     replies = await _query_agent(req.message, req.language or "en")
     return ChatResponse(
         replies=replies,
+        response="\n".join(replies),
         elapsed_s=round(time.monotonic() - start, 2),
     )
 
