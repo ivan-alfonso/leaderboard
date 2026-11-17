@@ -90,7 +90,15 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
         const backendBase = import.meta.env.VITE_API_URL || "http://localhost:8000";
         const response = await axios.get(`${backendBase}/model/leaderboard`);
 
-        setAllData(response.data);
+        // Compute macro_avg from CEFR level totals for models that don't have it stored
+        const enriched = (response.data as ModelMetric[]).map((m) => {
+          if (m.macro_avg > 0) return m;
+          const totals = [m.a1_total, m.a2_total, m.b1_total, m.b2_total, m.c1_total, m.c2_total].filter((v) => v > 0);
+          if (totals.length === 0) return m;
+          const computed = Math.round((totals.reduce((s, v) => s + v, 0) / totals.length) * 100) / 100;
+          return { ...m, macro_avg: computed };
+        });
+        setAllData(enriched);
         setError(null);
       } catch (err) {
         console.error("Error fetching model metrics:", err);
