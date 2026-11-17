@@ -29,11 +29,13 @@ try:
     from llm.config import get_llm_provider
     from llm.router import classify_with_llm, ALLOWED_INTENTS
     from llm.sanitize import sanitize as _sanitize_input
+    from llm.translate import translate_text as _translate_text
 except ImportError:
     get_llm_provider = lambda agent=None: None  # noqa: E731
     classify_with_llm = lambda *a, **kw: None   # noqa: E731
     ALLOWED_INTENTS = frozenset()
     _sanitize_input = lambda s: s              # noqa: E731
+    _translate_text = lambda *a, **kw: None    # noqa: E731
 
 # Ensure the agent/ package is importable when run directly
 sys.path.insert(0, os.path.dirname(__file__))
@@ -447,6 +449,21 @@ def _lang(session: Session) -> str:
     return lang if lang in ('en', 'de', 'fr', 'it', 'lb', 'pt') else 'en'
 
 
+def _reply(session: Session, text: str) -> None:
+    """Send a reply, translating to the session language when it is not English.
+
+    Used for English-only dynamic responses (scores, rankings, explanations).
+    Static messages that already go through _t() use session.reply() directly.
+    Falls back to the original English text when the LLM is unavailable.
+    """
+    lang = _lang(session)
+    if lang == 'en' or _llm is None:
+        session.reply(text)
+        return
+    translated = _translate_text(_llm, text, lang)
+    session.reply(translated if translated else text)
+
+
 def _send_ui_action(session: Session, ui_action: dict) -> None:
     """Encode a UI action as a sentinel-prefixed text message."""
     session.reply(f'__UI_ACTION__{json.dumps(ui_action)}')
@@ -672,7 +689,7 @@ if AGENT_MODE == 'llm':
 
 def explain_leaderboard_body(session: Session) -> None:
     _consume_llm_route(session)
-    session.reply(LEADERBOARD_OVERVIEW)
+    _reply(session, LEADERBOARD_OVERVIEW)
 
 
 explain_leaderboard_state.set_body(explain_leaderboard_body)
@@ -680,7 +697,7 @@ explain_leaderboard_state.set_body(explain_leaderboard_body)
 
 def explain_methodology_body(session: Session) -> None:
     _consume_llm_route(session)
-    session.reply(METHODOLOGY_OVERVIEW)
+    _reply(session, METHODOLOGY_OVERVIEW)
 
 
 explain_methodology_state.set_body(explain_methodology_body)
@@ -696,15 +713,15 @@ def explain_metric_body(session: Session) -> None:
             level_reply = CEFR_EXPLANATION
             if cat and cat in METRIC_EXPLANATIONS:
                 level_reply += f"\n\n{METRIC_EXPLANATIONS[cat]}"
-            session.reply(level_reply)
+            _reply(session, level_reply)
         elif cat and cat in METRIC_EXPLANATIONS:
-            session.reply(METRIC_EXPLANATIONS[cat])
+            _reply(session, METRIC_EXPLANATIONS[cat])
         elif "percent" in lower or "score" in lower or "interpret" in lower:
-            session.reply(SCORE_INTERPRETATION)
+            _reply(session, SCORE_INTERPRETATION)
         elif "macro" in lower or "overall" in lower or "average" in lower:
-            session.reply(METRIC_EXPLANATIONS["Macro"])
+            _reply(session, METRIC_EXPLANATIONS["Macro"])
         else:
-            session.reply(CEFR_EXPLANATION)
+            _reply(session, CEFR_EXPLANATION)
     except Exception:
         baf_logger.error("explain_metric_body failed:\n%s", traceback.format_exc())
         session.reply(_t('error', _lang(session)))
@@ -762,11 +779,11 @@ def lookup_score_body(session: Session) -> None:
                 return
             result = lookup_score(candidates[0], "All", "Macro")
             if result:
-                session.reply(
+                _reply(session,
                     f"**{result['model_name']}** — Macro Average: **{float(result['value']):.2f}%**"
                 )
             else:
-                session.reply(f"I couldn't find a Macro Average score for *{candidates[0]}*.")
+                _reply(session, f"I couldn't find a Macro Average score for *{candidates[0]}*.")
             return
 
         # No level specified: show all CEFR Totals when the model is identifiable
@@ -780,7 +797,7 @@ def lookup_score_body(session: Session) -> None:
                 return
             header = f"**{rows[0]['model_name']} — CEFR Totals**\n\n"
             lines = [f"• **{r['metric_name']}**: {r['score']:.2f}%" for r in rows]
-            session.reply(header + "\n".join(lines))
+            _reply(session, header + "\n".join(lines))
             return
 
         # Default category to Total if not specified
@@ -794,7 +811,7 @@ def lookup_score_body(session: Session) -> None:
 
         result = lookup_score(candidates[0], level, cat)
         if result:
-            session.reply(
+            _reply(session,
                 f"**{result['model_name']}** — {result['metric_name']}: **{float(result['value']):.2f}%**"
             )
         else:
@@ -851,7 +868,7 @@ def rank_models_body(session: Session) -> None:
             f"{i+1}. **{r['model_name']}** — {r['score']:.2f}%"
             for i, r in enumerate(rows)
         ]
-        session.reply(header + "\n".join(lines))
+        _reply(session, header + "\n".join(lines))
     except Exception:
         baf_logger.error("rank_models_body failed:\n%s", traceback.format_exc())
         session.reply(_t('error', _lang(session)))
@@ -907,7 +924,7 @@ def compare_models_body(session: Session) -> None:
             return
 
         if len(rows) == 1:
-            session.reply(
+            _reply(session,
                 f"I only found a result for **{rows[0]['model_name']}** "
                 f"({level} {cat}: **{rows[0]['score']:.2f}%**). "
                 "I could not find a matching result for the other model."
@@ -926,7 +943,7 @@ def compare_models_body(session: Session) -> None:
                 f"\n*{leader} leads by **{delta:.2f} percentage points**.*"
             )
 
-        session.reply(header + "\n".join(lines))
+        _reply(session, header + "\n".join(lines))
     except Exception:
         baf_logger.error("compare_models_body failed:\n%s", traceback.format_exc())
         session.reply(_t('error', _lang(session)))
@@ -1038,19 +1055,19 @@ def data_coverage_body(session: Session) -> None:
                 w in n.lower() for w in msg.lower().split() if len(w) >= 4
             )]
             if matches:
-                session.reply(
+                _reply(session,
                     f"Yes, **{matches[0]}** is included in the leaderboard with results "
                     f"across all 31 metrics (6 CEFR levels × 4 categories + Macro Average)."
                 )
             else:
-                session.reply(
+                _reply(session,
                     "I couldn't find that model. Try searching with the exact name as shown in the table."
                 )
             return
 
         stats = get_coverage_stats()
         families = get_model_families()
-        session.reply(
+        _reply(session,
             f"**LëtzEval leaderboard coverage:**\n\n"
             f"• **{stats['model_count']} models** evaluated\n"
             f"• **{stats['open_source']} open-source** and **{stats['proprietary']} proprietary** models\n"

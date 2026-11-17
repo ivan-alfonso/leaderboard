@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../contexts/ThemeContext";
+import { SUPPORTED_LANGUAGES } from "../i18n/config";
 
 // ── Customization constants ────────────────────────────────────────────────
 const AGENT_TITLE      = "LëtzEval Assistant";
@@ -41,6 +42,14 @@ export const AgentComponent: React.FC = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
 
+  // ── Agent language (independent from page i18n) ────────────────────────
+  const [agentLang, setAgentLang]     = useState(i18n.language);
+  const [langPickerOpen, setLangPickerOpen] = useState(false);
+  const agentLangRef   = useRef(i18n.language);   // always-current value for callbacks
+  const userSetLangRef = useRef(false);            // true once user explicitly picks a lang
+  const langPickerRef  = useRef<HTMLDivElement>(null);
+  // ──────────────────────────────────────────────────────────────────────
+
   const wsRef        = useRef<WebSocket | null>(null);
   const retryRef     = useRef<ReturnType<typeof setTimeout> | null>(null);
   const unmountedRef = useRef(false);
@@ -74,8 +83,8 @@ export const AgentComponent: React.FC = () => {
         if (unmountedRef.current) { ws.close(); return; }
         setIsConnected(true);
         setIsConnecting(false);
-        // Immediately tell the agent which language the UI is in
-        sendLang(ws, i18n.language);
+        // Tell agent the current agent language (may differ from page language)
+        sendLang(ws, agentLangRef.current);
       };
 
       ws.onmessage = (event) => {
@@ -164,13 +173,36 @@ export const AgentComponent: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [agentUrl]);
 
-  // Notify the agent whenever the UI language changes (while connected)
+  // Follow page language only when user hasn't explicitly overridden agent lang
   useEffect(() => {
-    if (wsRef.current && isConnected) {
-      sendLang(wsRef.current, i18n.language);
+    if (!userSetLangRef.current) {
+      agentLangRef.current = i18n.language;
+      setAgentLang(i18n.language);
+      if (wsRef.current && isConnected) {
+        sendLang(wsRef.current, i18n.language);
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [i18n.language, isConnected]);
+  }, [i18n.language]);
+
+  // Send language to agent when agentLang changes (from user picking a lang)
+  useEffect(() => {
+    if (isConnected && wsRef.current) {
+      sendLang(wsRef.current, agentLang);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [agentLang, isConnected]);
+
+  // Close lang picker on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (langPickerRef.current && !langPickerRef.current.contains(e.target as Node)) {
+        setLangPickerOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -193,14 +225,21 @@ export const AgentComponent: React.FC = () => {
     // BAF 4.5.0 reset payload: clears session state server-side
     wsRef.current.send(JSON.stringify({ action: "reset", message: null }));
     setMessages([]);
-    // Re-send language so the new session knows the UI language immediately
-    sendLang(wsRef.current, i18n.language);
+    // Re-send language so the new session knows the selected language
+    sendLang(wsRef.current, agentLangRef.current);
   };
 
   const sendOption = (option: string) => {
     if (!wsRef.current || !isConnected) return;
     setMessages((prev) => [...prev, { text: option, sender: "user" }]);
     wsRef.current.send(JSON.stringify({ action: "user_message", message: option }));
+  };
+
+  const selectAgentLang = (code: string) => {
+    userSetLangRef.current = true;
+    agentLangRef.current = code;
+    setAgentLang(code);
+    setLangPickerOpen(false);
   };
 
   const onKey = (e: React.KeyboardEvent) => {
@@ -211,6 +250,7 @@ export const AgentComponent: React.FC = () => {
   };
 
   const dot = isConnected ? "#22c55e" : isConnecting ? "#f59e0b" : "#ef4444";
+  const currentLangEntry = SUPPORTED_LANGUAGES.find((l) => l.code === agentLang) ?? SUPPORTED_LANGUAGES[0];
 
   // ── Styles ───────────────────────────────────────────────────────────────
 
@@ -328,6 +368,20 @@ export const AgentComponent: React.FC = () => {
     opacity: isConnected ? 1 : 0.45,
   };
 
+  const langBtnStyle: React.CSSProperties = {
+    background: "none",
+    border: `1px solid ${colors.border}`,
+    borderRadius: 6,
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    gap: 3,
+    padding: "3px 6px",
+    fontSize: 16,
+    lineHeight: 1,
+    color: colors.textMuted,
+  };
+
   return (
     <div style={launcherStyle}>
       {isOpen && (
@@ -350,6 +404,99 @@ export const AgentComponent: React.FC = () => {
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              {/* Language selector */}
+              <div ref={langPickerRef} style={{ position: "relative" }}>
+                <button
+                  onClick={() => setLangPickerOpen((o) => !o)}
+                  style={langBtnStyle}
+                  title="Agent response language"
+                  aria-label="Select agent language"
+                  aria-haspopup="listbox"
+                  aria-expanded={langPickerOpen}
+                >
+                  <span aria-hidden="true">{currentLangEntry.flag}</span>
+                  <svg
+                    width="8" height="8" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2.5"
+                    strokeLinecap="round" strokeLinejoin="round"
+                    aria-hidden="true"
+                    style={{ transform: langPickerOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.12s ease" }}
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                {langPickerOpen && (
+                  <ul
+                    role="listbox"
+                    aria-label="Agent language"
+                    style={{
+                      position: "absolute",
+                      top: "calc(100% + 6px)",
+                      right: 0,
+                      minWidth: "180px",
+                      backgroundColor: colors.surfaceElevated,
+                      border: `1px solid ${colors.border}`,
+                      borderRadius: 10,
+                      boxShadow: "0 8px 24px rgba(0,0,0,0.18)",
+                      zIndex: 1100,
+                      padding: "4px",
+                      margin: 0,
+                      listStyle: "none",
+                    }}
+                  >
+                    {SUPPORTED_LANGUAGES.map((lang) => {
+                      const isSelected = lang.code === agentLang;
+                      return (
+                        <li
+                          key={lang.code}
+                          role="option"
+                          aria-selected={isSelected}
+                          onClick={() => selectAgentLang(lang.code)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              selectAgentLang(lang.code);
+                            }
+                          }}
+                          tabIndex={0}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 10,
+                            padding: "7px 10px",
+                            borderRadius: 6,
+                            cursor: "pointer",
+                            fontSize: 13,
+                            fontWeight: isSelected ? 600 : 400,
+                            color: isSelected ? colors.accent : colors.textPrimary,
+                            backgroundColor: isSelected ? `${colors.accent}18` : "transparent",
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isSelected) e.currentTarget.style.backgroundColor = colors.hoverBg;
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isSelected) e.currentTarget.style.backgroundColor = "transparent";
+                          }}
+                        >
+                          <span style={{ fontSize: 18, lineHeight: 1 }} aria-hidden="true">{lang.flag}</span>
+                          <span>{lang.nativeName}</span>
+                          {isSelected && (
+                            <svg
+                              width="12" height="12" viewBox="0 0 24 24" fill="none"
+                              stroke="currentColor" strokeWidth="2.5"
+                              strokeLinecap="round" strokeLinejoin="round"
+                              style={{ marginLeft: "auto", color: colors.accent }}
+                              aria-hidden="true"
+                            >
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </div>
               {/* Reset button */}
               <button
                 onClick={resetChat}

@@ -49,12 +49,12 @@ i18n.on("languageChanged", (lng) => {
 export default i18n;
 
 export const SUPPORTED_LANGUAGES = [
-  { code: "en", nativeName: "English" },
-  { code: "lb", nativeName: "Lëtzebuergesch" },
-  { code: "fr", nativeName: "Français" },
-  { code: "de", nativeName: "Deutsch" },
-  { code: "it", nativeName: "Italiano" },
-  { code: "pt", nativeName: "Português" },
+  { code: "en", nativeName: "English",        flag: "🇬🇧" },
+  { code: "lb", nativeName: "Lëtzebuergesch", flag: "🇱🇺" },
+  { code: "fr", nativeName: "Français",       flag: "🇫🇷" },
+  { code: "de", nativeName: "Deutsch",        flag: "🇩🇪" },
+  { code: "it", nativeName: "Italiano",       flag: "🇮🇹" },
+  { code: "pt", nativeName: "Português",      flag: "🇵🇹" },
 ] as const;
 
 export type LanguageCode = typeof SUPPORTED_LANGUAGES[number]["code"];

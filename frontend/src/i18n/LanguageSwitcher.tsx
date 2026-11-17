@@ -68,22 +68,7 @@ export const LanguageSwitcher: React.FC = () => {
           e.currentTarget.style.borderColor = colors.border;
         }}
       >
-        {/* Globe icon */}
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <line x1="2" y1="12" x2="22" y2="12" />
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        </svg>
+        <span style={{ fontSize: "16px", lineHeight: 1 }} aria-hidden="true">{currentLang.flag}</span>
         <span>{currentLang.nativeName}</span>
         <svg
           width="10"
@@ -155,9 +140,7 @@ export const LanguageSwitcher: React.FC = () => {
                   if (!isSelected) e.currentTarget.style.backgroundColor = "transparent";
                 }}
               >
-                <span style={{ minWidth: "20px", fontSize: "11px", fontWeight: 600, color: colors.textMuted, fontVariantCaps: "all-small-caps", letterSpacing: "0.05em" }}>
-                  {lang.code.toUpperCase()}
-                </span>
+                <span style={{ fontSize: "18px", lineHeight: 1, minWidth: "22px" }} aria-hidden="true">{lang.flag}</span>
                 <span>{lang.nativeName}</span>
                 {isSelected && (
                   <svg
