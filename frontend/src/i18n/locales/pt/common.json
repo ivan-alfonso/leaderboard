@@ -1,0 +1,77 @@
+{
+  "theme": {
+    "switchToLight": "Mudar para modo claro",
+    "switchToDark": "Mudar para modo escuro",
+    "light": "Claro",
+    "dark": "Escuro"
+  },
+  "footer": {
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "contact": "Contato",
+    "designedWith": "Criado com"
+  },
+  "table": {
+    "loading": "Carregando dados...",
+    "error": "Erro ao carregar dados",
+    "add": "Adicionar {{entity}}",
+    "addDefault": "Adicionar entrada",
+    "edit": "Editar {{entity}}",
+    "editDefault": "Editar entrada",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "prev": "Anterior",
+    "next": "Próximo",
+    "page": "Página {{current}} de {{total}}",
+    "showing": "Mostrando {{visible}} de {{total}} linhas",
+    "filtered": "filtrado",
+    "noOptions": "Nenhuma opção disponível",
+    "editTitle": "Editar",
+    "requiredFields": "Por favor, preencha os seguintes campos obrigatórios: {{fields}}",
+    "saveFailed": "Falha ao salvar. Por favor, verifique os dados inseridos.",
+    "updateFailed": "Falha ao atualizar. Por favor, verifique os dados inseridos.",
+    "networkError": "Erro de rede. Por favor, tente novamente.",
+    "resetFilters": "Redefinir filtros"
+  },
+  "filter": {
+    "buttonTitle": "Filtrar coluna",
+    "title": "Filtrar {{column}}",
+    "operator": "Operador",
+    "value": "Valor",
+    "clear": "Limpar",
+    "apply": "Aplicar",
+    "placeholder": "Inserir valor {{type}}...",
+    "selectPlaceholder": "Selecionar...",
+    "true": "Verdadeiro",
+    "false": "Falso",
+    "operators": {
+      "contains": "contém",
+      "equals": "igual a",
+      "startsWith": "começa com",
+      "endsWith": "termina com",
+      "isEmpty": "está vazio",
+      "isNotEmpty": "não está vazio",
+      "eq": "= (igual a)",
+      "ne": "≠ (diferente de)",
+      "gt": "> (maior que)",
+      "gte": "≥ (maior ou igual a)",
+      "lt": "< (menor que)",
+      "lte": "≤ (menor ou igual a)"
+    }
+  },
+  "sort": {
+    "ascending": "Ordenar de forma crescente",
+    "descending": "Ordenar de forma decrescente"
+  },
+  "language": {
+    "selectLanguage": "Selecionar idioma",
+    "languages": {
+      "en": "English",
+      "lb": "Lëtzebuergesch",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "pt": "Português"
+    }
+  }
+}

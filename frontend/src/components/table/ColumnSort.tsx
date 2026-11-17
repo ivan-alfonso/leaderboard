@@ -1,4 +1,6 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contexts/ThemeContext";
 
 interface ColumnSortProps {
   column: {
@@ -11,6 +13,8 @@ interface ColumnSortProps {
 }
 
 export const ColumnSort: React.FC<ColumnSortProps> = ({ column, currentSort, onSortChange }) => {
+  const { t } = useTranslation("common");
+  const { colors } = useTheme();
   const isActive = currentSort?.field === column.field;
   const direction = currentSort?.direction || "asc";
 
@@ -21,7 +25,7 @@ export const ColumnSort: React.FC<ColumnSortProps> = ({ column, currentSort, onS
       style={{
         background: "transparent",
         border: "none",
-        color: isActive ? "#fff" : "#94a3b8",
+        color: isActive ? colors.accent : colors.textMuted,
         cursor: "pointer",
         padding: "4px",
         borderRadius: "4px",
@@ -30,8 +34,9 @@ export const ColumnSort: React.FC<ColumnSortProps> = ({ column, currentSort, onS
         transition: "all 0.2s",
         display: "inline-flex",
         alignItems: "center",
+        opacity: isActive ? 1 : 0.6,
       }}
-      title={`Sort ${isActive && direction === "asc" ? "descending" : "ascending"}`}
+      title={isActive && direction === "asc" ? t("sort.descending") : t("sort.ascending")}
     >
       {!isActive && "⇅"}
       {isActive && direction === "asc" && "↑"}

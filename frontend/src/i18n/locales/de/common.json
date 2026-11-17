@@ -1,0 +1,77 @@
+{
+  "theme": {
+    "switchToLight": "Zum hellen Modus wechseln",
+    "switchToDark": "Zum dunklen Modus wechseln",
+    "light": "Hell",
+    "dark": "Dunkel"
+  },
+  "footer": {
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "contact": "Kontakt",
+    "designedWith": "Gestaltet mit"
+  },
+  "table": {
+    "loading": "Daten werden geladen...",
+    "error": "Fehler beim Laden der Daten",
+    "add": "{{entity}} hinzufügen",
+    "addDefault": "Eintrag hinzufügen",
+    "edit": "{{entity}} bearbeiten",
+    "editDefault": "Eintrag bearbeiten",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "page": "Seite {{current}} von {{total}}",
+    "showing": "{{visible}} von {{total}} Zeilen werden angezeigt",
+    "filtered": "gefiltert",
+    "noOptions": "Keine Optionen verfügbar",
+    "editTitle": "Bearbeiten",
+    "requiredFields": "Bitte füllen Sie die folgenden Pflichtfelder aus: {{fields}}",
+    "saveFailed": "Speichern fehlgeschlagen. Bitte überprüfen Sie Ihre Eingabe.",
+    "updateFailed": "Aktualisierung fehlgeschlagen. Bitte überprüfen Sie Ihre Eingabe.",
+    "networkError": "Netzwerkfehler. Bitte versuchen Sie es erneut.",
+    "resetFilters": "Filter zurücksetzen"
+  },
+  "filter": {
+    "buttonTitle": "Spalte filtern",
+    "title": "{{column}} filtern",
+    "operator": "Operator",
+    "value": "Wert",
+    "clear": "Löschen",
+    "apply": "Anwenden",
+    "placeholder": "{{type}}-Wert eingeben...",
+    "selectPlaceholder": "Auswählen...",
+    "true": "Wahr",
+    "false": "Falsch",
+    "operators": {
+      "contains": "enthält",
+      "equals": "gleich",
+      "startsWith": "beginnt mit",
+      "endsWith": "endet mit",
+      "isEmpty": "ist leer",
+      "isNotEmpty": "ist nicht leer",
+      "eq": "= (gleich)",
+      "ne": "≠ (ungleich)",
+      "gt": "> (größer als)",
+      "gte": "≥ (größer oder gleich)",
+      "lt": "< (kleiner als)",
+      "lte": "≤ (kleiner oder gleich)"
+    }
+  },
+  "sort": {
+    "ascending": "Aufsteigend sortieren",
+    "descending": "Absteigend sortieren"
+  },
+  "language": {
+    "selectLanguage": "Sprache auswählen",
+    "languages": {
+      "en": "English",
+      "lb": "Lëtzebuergesch",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "pt": "Português"
+    }
+  }
+}

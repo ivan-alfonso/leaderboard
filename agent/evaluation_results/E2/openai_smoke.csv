@@ -1,0 +1,5 @@
+id,input,lang,expected_intent,expected_answer,clarification_ok,notes,response,has_options,score,latency_s,error
+2,Show me the C1 Total score for Llama 3.1 - 70B.,en,lookup_score,47.12,False,Exact model name with version and size,**Llama 3.1 - 70B** — C1 Total: **47.12%**,False,correct,14.34,
+8,phi4 b1 vocab,en,lookup_score,36.00,False,"Compressed model name, no spaces",**Phi 4** — B1 vocab: **36.00%**,False,correct,11.25,
+11,Give me Qwen 2 results at B2.,en,lookup_score,,True,Ambiguous: Qwen 2 - 0.5B / 1.5B / 7B / 72B,"I'm not sure which model you mean. Please use the model name as shown in the table (e.g. *""GPT-6 Astra""*, *""Qwen 2 - 0.5B""*).
+[OPTIONS: Qwen 2 - 0.5B, Qwen 2 - 1.5B, Qwen 2 - 72B, Qwen 2 - 7B]",True,correct,12.08,

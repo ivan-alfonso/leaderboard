@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "title": "Gli LLM riescono a comprendere il lussemburghese?"
+  },
+  "intro": {
+    "paragraph1": "I large language models (LLMs) hanno rimodellato il panorama dell'intelligenza artificiale negli ultimi anni. Sono diventati onnipresenti e vengono utilizzati sia da utenti privati che da aziende. Tuttavia, gli LLM vengono sviluppati principalmente per lingue molto diffuse come l'inglese, lo spagnolo o il tedesco, lasciando in disparte lingue come il lussemburghese.",
+    "paragraph2": "In questo progetto, abbiamo cercato di testare le capacità linguistiche degli LLM in lussemburghese. In collaborazione con l'Institut National des Langues Luxembourg (INLL) , abbiamo utilizzato esami di competenza linguistica per valutare le prestazioni di LLM attuali."
+  },
+  "howItWorks": {
+    "title": "Come funziona?",
+    "body": "Utilizzando esami linguistici ufficiali elaborati da esperti dell'INLL, testiamo sistematicamente gli LLM facendo loro risolvere ogni domanda e valutando le loro prestazioni complessive. In totale ci sono 630 domande a scelta multipla, ognuna appartenente a una delle quattro categorie principali (Vocabolario, Grammatica, Comprensione scritta, Comprensione orale) e a un livello CEFR (A1, A2, B1, B2, C1, C2). Le prestazioni degli LLM per ogni categoria e livello CEFR sono espresse come percentuale di domande risposte correttamente.Per ulteriori dettagli sulla metodologia di valutazione, fate riferimento al articolo di ricerca",
+    "paperSentence": "Per ulteriori dettagli sulla metodologia di valutazione, fate riferimento al ",
+    "paperLinkText": "articolo di ricerca"
+  },
+  "howToUse": {
+    "title": "Come utilizzare questa classifica?",
+    "paragraph1": "Qui sotto trovi il pannello di controllo per filtrare la classifica. Puoi selezionare un livello CEFR ed una categoria per filtrare la tabella di conseguenza. Inoltre, puoi scegliere di visualizzare solo modelli open weight o proprietari, selezionare una famiglia specifica di modelli linguistici (ad es. solo modelli Llama), selezionare un intervallo di dimensioni dei parametri LLM, o visualizzare i modelli che hanno risposto correttamente a una determinata percentuale di domande. Per facilitare la lettura, i modelli con le prestazioni migliori sono evidenziati in verde.",
+    "paragraph2": "Sotto la tabella trovi un grafico a barre che mostra le prestazioni degli LLM per ogni categoria e livello CEFR, per facilitare il confronto delle prestazioni degli LLM."
+  },
+  "table": {
+    "title": "Classifica dei modelli"
+  },
+  "chart": {
+    "title": "Confronto delle prestazioni dei modelli",
+    "defaultTitle": "Metriche di prestazione dei modelli",
+    "loading": "Caricamento metriche...",
+    "error": "Impossibile caricare le metriche del modello",
+    "noModels": "Nessun modello corrisponde ai filtri selezionati",
+    "score": "Punteggio",
+    "modelsCount": "{{count}} modelli",
+    "metricNames": {
+      "total": "Totale",
+      "vocabulary": "Vocabolario",
+      "readingComprehension": "Comprensione scritta",
+      "listeningComprehension": "Comprensione orale",
+      "grammar": "Grammatica"
+    }
+  },
+  "filters": {
+    "title": "Filtra modelli",
+    "cefrLevel": "Livello CEFR",
+    "testCategory": "Categoria di test",
+    "modelType": "Tipo di modello",
+    "sizeRange": "Intervallo di dimensioni LLM (miliardi di parametri)",
+    "minPerformance": "Prestazione minima: {{value}}%",
+    "showMinPerf": "Mostra LLM con prestazione minima del {{value}}%",
+    "resetFilters": "Reimposta filtri",
+    "all": "Tutti",
+    "vocabulary": "Vocabolario",
+    "grammar": "Grammatica",
+    "readingComprehension": "Comprensione scritta",
+    "listeningComprehension": "Comprensione orale",
+    "total": "Totale",
+    "openSource": "Open Source",
+    "proprietary": "Proprietario (Chiuso)",
+    "to": "a",
+    "billion": "Mrd"
+  }
+}

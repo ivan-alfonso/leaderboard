@@ -1,5 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 import { TableComponent } from "../table/TableComponent";
 
 export interface TableBlockProps {
@@ -19,6 +20,7 @@ export const TableBlock: React.FC<TableBlockProps> = ({
   dataBinding,
   styles,
 }) => {
+  const { t } = useTranslation("common");
   const [tableData, setTableData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -66,8 +68,8 @@ export const TableBlock: React.FC<TableBlockProps> = ({
       .finally(() => setLoading(false));
   }, [dataBinding?.endpoint, dataBinding?.label_field, dataBinding?.data_field, options?.columns]);
 
-  if (loading) return <div id={id}>Loading data...</div>;
-  if (error) return <div id={id}>{error}</div>;
+  if (loading) return <div id={id}>{t("table.loading")}</div>;
+  if (error) return <div id={id}>{t("table.error")}</div>;
 
   return (
     <TableComponent

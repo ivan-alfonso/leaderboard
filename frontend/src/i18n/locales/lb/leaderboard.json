@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "title": "WÉI GUTT VERSTINN LLMS LËTZEBUERGESCH?"
+  },
+  "intro": {
+    "paragraph1": "Grouss Sproochemodeller oder Large Language Models (LLMs) hunn d'KI-Landschaft an de leschte Joren ëmgeformt. Si ginn ëmmer méi allgéigewäerteg a gi vu privaten Notzer a Firmen gläichermoosse benotzt. Allerdéngs ginn LLMs haaptsächlech fir wäit verbreet Sproochen wéi zum Beispill Englesch, Spuenesch oder Däitsch entwéckelt, woubäi Sprooche wéi Lëtzebuergesch op der Säit gelooss ginn.",
+    "paragraph2": "An dësem Projet hu mir versicht, d'linguistesch Fäegkeeten vun LLMs op Lëtzebuergesch ze testen. An Zesummenaarbecht mam Institut National des Langues Luxembourg (INLL) hu mir Sproochenexame benotzt, fir d'Leeschtung vun aktuellen LLMs ze evaluéieren."
+  },
+  "howItWorks": {
+    "title": "Wéi funktionéiert dës Studie?",
+    "body": "Mat offiziellen Sproochenexamen, déi vun Experten beim INLL entwéckelt goufen, teste mir LLMs systematesch, andeems mir si all Fro léise loossen an hir Gesamtleeschtung bewäerten. Et ginn am Ganzen 630 Multiple-Choice Froen, déi jeeweils zu enger vu véier breede Testkategorien (Vocabulaire, Grammatik, Liesverstoen, Héierverstoen) an engem CEFR-Niveau (A1, A2, B1, B2, C1, C2) gehéieren. D'Leeschtung vun den LLMs fir all Kategorie a CEFR-Niveau gëtt als Prozentsaz vu richteg beäntwerte Froe ausgedréckt.",
+    "paperSentence": "Fir méi Detailer iwwer d'Bewäertungsmethodologie, kuckt de  ",
+    "paperLinkText": "Fuerschungspabeier."
+  },
+  "howToUse": {
+    "title": "Wéi benotzt een dëse Leaderboard?",
+    "paragraph1": "Hei ennendrënner fannt Dir d'Kontrolltafel fir de Leaderboard ze filteren. Dir kënnt en CEFR-Niveau an eng Kategorie auswielen, fir d'Tabell vun de Resultater entspriechend ze filteren. Zousätzlech kënnt dir decidéieren, nëmmen Open-Source oder proprietär Modeller unzeweisen, eng spezifesch Modellfamill auswielen (z.B. nëmme Llama-Modeller), en Gréisseberäich vun LLM-Parameteren auswielen, oder Modeller uweisen, déi e bestëmmte Prozentsaz vu Froe richteg beäntwert hunn. Fir d'Liesbarkeet ze verbesseren, sinn déi beschte Modeller gréng markéiert.",
+    "paragraph2": "Ënner der Tabell fannt dir e Balkendiagramm, deen d'Leeschtung vun den LLMs fir all Kategorie an CEFR-Niveau weist, fir d'Leeschtung vun den LLMs méi einfach vergläichen ze kënnen."
+  },
+  "table": {
+    "title": "Modell-Leaderboard"
+  },
+  "chart": {
+    "title": "Verglach vun de Modell-Leeschtungen",
+    "defaultTitle": "Modell-Leeschtungsmetriken",
+    "loading": "Metrike gi gelueden...",
+    "error": "Modell-Metrike konnten net geluede ginn",
+    "noModels": "Keng Modeller entspriechen de gewielten Filteren",
+    "score": "Score",
+    "modelsCount": "{{count}} Modeller",
+    "metricNames": {
+      "total": "Total",
+      "vocabulary": "Vocabulaire",
+      "readingComprehension": "Liesverstoen",
+      "listeningComprehension": "Héierverstoen",
+      "grammar": "Grammatik"
+    }
+  },
+  "filters": {
+    "title": "Modeller filteren",
+    "cefrLevel": "CEFR-Niveau",
+    "testCategory": "Testkategorie",
+    "modelType": "Modelltyp",
+    "sizeRange": "LLM-Gréisseberäich (Milliarde Parameteren)",
+    "minPerformance": "Mindestleeschtung: {{value}}%",
+    "showMinPerf": "LLMs mat enger Mindestleeschtung vun {{value}}% uweisen",
+    "resetFilters": "Filteren zerécksetzen",
+    "all": "All",
+    "vocabulary": "Vocabulaire",
+    "grammar": "Grammatik",
+    "readingComprehension": "Liesverstoen",
+    "listeningComprehension": "Héierverstoen",
+    "total": "Total",
+    "openSource": "Open-Source",
+    "proprietary": "Proprietär (Closed-Source)",
+    "to": "bis",
+    "billion": "Mrd."
+  }
+}

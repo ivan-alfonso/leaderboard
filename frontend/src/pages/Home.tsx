@@ -1,10 +1,14 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { TableBlock } from "../components/runtime/TableBlock";
 import { ModelMetricsBarChart } from "../components/charts/ModelMetricsBarChart";
+import { AgentComponent } from "../components/AgentComponent";
 import { useTheme } from "../contexts/ThemeContext";
+import { LanguageSwitcher } from "../i18n/LanguageSwitcher";
 
 const Home: React.FC = () => {
   const { theme, colors, toggleTheme } = useTheme();
+  const { t } = useTranslation(["common", "leaderboard"]);
   const isDark = theme === "dark";
 
   const pageStyle: React.CSSProperties = {
@@ -59,7 +63,7 @@ const Home: React.FC = () => {
   return (
     <div id="5WFQu3cZBn89Z4xa" style={pageStyle}>
       <section id="ic1xf" className="assistant-hero" style={heroStyle}>
-        {/* Top row: logos on the left, theme toggle on the right */}
+        {/* Top row: logos on the left, controls on the right */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "40px", flexWrap: "wrap" }}>
             <img
@@ -74,58 +78,62 @@ const Home: React.FC = () => {
             />
           </div>
 
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "8px 14px",
-              borderRadius: "999px",
-              border: `1px solid ${colors.border}`,
-              backgroundColor: colors.surface,
-              color: colors.textPrimary,
-              cursor: "pointer",
-              fontSize: "13px",
-              fontWeight: 600,
-              transition: "all 0.15s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = colors.hoverBg;
-              e.currentTarget.style.borderColor = colors.borderStrong;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = colors.surface;
-              e.currentTarget.style.borderColor = colors.border;
-            }}
-          >
-            {isDark ? (
-              <>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="5" />
-                  <line x1="12" y1="1" x2="12" y2="3" />
-                  <line x1="12" y1="21" x2="12" y2="23" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                  <line x1="1" y1="12" x2="3" y2="12" />
-                  <line x1="21" y1="12" x2="23" y2="12" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                </svg>
-                <span>Light</span>
-              </>
-            ) : (
-              <>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-                <span>Dark</span>
-              </>
-            )}
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
+            <LanguageSwitcher />
+
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={isDark ? t("common:theme.switchToLight") : t("common:theme.switchToDark")}
+              title={isDark ? t("common:theme.switchToLight") : t("common:theme.switchToDark")}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "8px 14px",
+                borderRadius: "999px",
+                border: `1px solid ${colors.border}`,
+                backgroundColor: colors.surface,
+                color: colors.textPrimary,
+                cursor: "pointer",
+                fontSize: "13px",
+                fontWeight: 600,
+                transition: "all 0.15s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = colors.hoverBg;
+                e.currentTarget.style.borderColor = colors.borderStrong;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = colors.surface;
+                e.currentTarget.style.borderColor = colors.border;
+              }}
+            >
+              {isDark ? (
+                <>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                  </svg>
+                  <span>{t("common:theme.light")}</span>
+                </>
+              ) : (
+                <>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                  <span>{t("common:theme.dark")}</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
         <hr style={{ border: "none", borderTop: `1px solid ${colors.border}`, margin: "20px 0 36px 0" }} />
@@ -141,7 +149,7 @@ const Home: React.FC = () => {
             color: colors.textPrimary,
           }}
         >
-          HOW WELL DO LLMS UNDERSTAND LUXEMBOURGISH?
+          {t("leaderboard:hero.title")}
         </h1>
       </section>
 
@@ -149,36 +157,48 @@ const Home: React.FC = () => {
         {/* Introduction Section */}
         <section style={sectionStyle}>
           <p style={{ ...bodyTextStyle, marginBottom: "16px" }}>
-            Large Language Models (LLMs) have reshaped the AI landscape in recent years. They are becoming omnipresent, being used by private users and companies alike. However, LLMs are developed mainly for widespread languages such as English, Spanish, or German, leaving languages such as Luxembourgish on the sidelines.
+            {t("leaderboard:intro.paragraph1")}
           </p>
           <p style={bodyTextStyle}>
-            In this project, we aimed to test the linguistic capabilities of LLMs in Luxembourgish. In collaboration with the Institut National des Langues Luxembourg, we used language proficiency exams to evaluate the performance of 45 current-day LLMs.
+            {t("leaderboard:intro.paragraph2")}
           </p>
         </section>
 
         {/* How Does It Work Section */}
         <section style={sectionStyle}>
-          <h2 style={sectionHeadingStyle}>How Does It Work?</h2>
+          <h2 style={sectionHeadingStyle}>{t("leaderboard:howItWorks.title")}</h2>
           <p style={bodyTextStyle}>
-            Using official language exams crafted by experts at INLL, we systematically test LLMs by letting them solve each question and grade their overall performance. There are 630 multiple-choice questions in total, each belonging to one out of four broad categories (Vocabulary, Grammar, Reading Comprehension, Listening Comprehension) and a CEFR level (A1, A2, B1, B2, C1, C2). The performance of the LLMs for each category and CEFR level is expressed as a percentage of correctly answered questions.
+            {t("leaderboard:howItWorks.body")}
+          </p>
+          <p style={{ ...bodyTextStyle, marginTop: "12px" }}>
+            {t("leaderboard:howItWorks.paperSentence")}{" "}
+            <a
+              href="https://aclanthology.org/2026.findings-eacl.128/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: colors.accent, textDecoration: "underline" }}
+            >
+              {t("leaderboard:howItWorks.paperLinkText")}
+            </a>
+            .
           </p>
         </section>
 
         {/* How to Use Section */}
         <section style={sectionStyle}>
-          <h2 style={sectionHeadingStyle}>How To Use This Leaderboard?</h2>
+          <h2 style={sectionHeadingStyle}>{t("leaderboard:howToUse.title")}</h2>
           <p style={{ ...bodyTextStyle, marginBottom: "14px" }}>
-            Below, you find the control panel for filtering the leaderboard. You can select a desired CEFR level and category to filter the table accordingly. In addition, you can choose to display only open-source/closed-source models, select a specific language models family (e.g. only Llama models), select a specific size range of LLM parameters, or display models that correctly answered a given percentage of questions. To help with readability, the highest performing models are highlighted in green.
+            {t("leaderboard:howToUse.paragraph1")}
           </p>
           <p style={bodyTextStyle}>
-            Underneath the table, you find a bar chart showing the performance of the LLMs for each category and CEFR level to help compare the performance of the LLMs.
+            {t("leaderboard:howToUse.paragraph2")}
           </p>
         </section>
 
         <TableBlock
           id="i23pz"
           styles={{ width: "100%", minHeight: "300px", margin: "0 0 20px 0" }}
-          title="Model Leaderboard"
+          title={t("leaderboard:table.title")}
           options={{
             showHeader: true,
             stripedRows: true,
@@ -197,10 +217,11 @@ const Home: React.FC = () => {
               { label: "C1_total", column_type: "field", field: "c1_total", type: "number", required: false },
               { label: "C2_total", column_type: "field", field: "c2_total", type: "number", required: false },
             ],
+            defaultSort: { field: "c2_total", direction: "desc" },
           }}
           dataBinding={{ entity: "Model", endpoint: "/model/leaderboard" }}
         />
-        <ModelMetricsBarChart id="metrics-chart" title="Model Performance Comparison" styles={{ margin: 0 }} maxModels={20} />
+        <ModelMetricsBarChart id="metrics-chart" styles={{ margin: 0 }} maxModels={20} />
       </main>
 
       <footer
@@ -227,14 +248,14 @@ const Home: React.FC = () => {
 
         <div style={{ display: "flex", alignItems: "center", gap: "32px", flexWrap: "wrap" }}>
           <div id="i7al5" style={{ display: "flex", gap: "20px" }}>
-            <a id="i9qf7" style={{ color: colors.footerText, textDecoration: "none", fontSize: "0.85rem", transition: "color 0.2s" }} href="/">Privacy</a>
-            <a id="i4ues" style={{ color: colors.footerText, textDecoration: "none", fontSize: "0.85rem", transition: "color 0.2s" }} href="/">Terms</a>
-            <a id="i9s8m" style={{ color: colors.footerText, textDecoration: "none", fontSize: "0.85rem", transition: "color 0.2s" }} href="/">Contact</a>
+            <a id="i9qf7" style={{ color: colors.footerText, textDecoration: "none", fontSize: "0.85rem", transition: "color 0.2s" }} href="/">{t("common:footer.privacy")}</a>
+            <a id="i4ues" style={{ color: colors.footerText, textDecoration: "none", fontSize: "0.85rem", transition: "color 0.2s" }} href="/">{t("common:footer.terms")}</a>
+            <a id="i9s8m" style={{ color: colors.footerText, textDecoration: "none", fontSize: "0.85rem", transition: "color 0.2s" }} href="/">{t("common:footer.contact")}</a>
           </div>
 
           {/* BESSER Credit */}
           <div style={{ display: "flex", alignItems: "center", gap: "10px", paddingLeft: "32px", borderLeft: `1px solid ${colors.footerDivider}` }}>
-            <p style={{ fontSize: "0.85rem", color: colors.footerText, margin: 0 }}>Designed with</p>
+            <p style={{ fontSize: "0.85rem", color: colors.footerText, margin: 0 }}>{t("common:footer.designedWith")}</p>
             <a
               href="https://editor.besser-pearl.org/"
               target="_blank"
@@ -258,6 +279,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </footer>
+      <AgentComponent />
     </div>
   );
 };

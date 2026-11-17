@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "title": "HOW WELL DO LLMS UNDERSTAND LUXEMBOURGISH?"
+  },
+  "intro": {
+    "paragraph1": "Large Language Models (LLMs) have reshaped the AI landscape in recent years. They are becoming omnipresent, being used by private users and companies alike. However, LLMs are developed mainly for widespread languages such as English, Spanish, or German, leaving languages such as Luxembourgish on the sidelines.",
+    "paragraph2": "In this project, we aimed to test the linguistic capabilities of LLMs in Luxembourgish. In collaboration with the Institut National des Langues Luxembourg (INLL) , we used language proficiency exams to evaluate the performance of 45 current-day LLMs."
+  },
+  "howItWorks": {
+    "title": "How Does It Work?",
+    "body": "Using official language exams crafted by experts at INLL, we systematically test LLMs by letting them solve each question and grade their overall performance. There are 629 multiple-choice questions in total, each belonging to one out of four broad categories (Vocabulary, Grammar, Reading Comprehension, Listening Comprehension) and a CEFR level (A1, A2, B1, B2, C1, C2). The performance of the LLMs for each category and CEFR level is expressed as a percentage of correctly answered questions.",
+    "paperSentence": "For more details about the evaluation methodology, see the ",
+    "paperLinkText": "research paper"
+  },
+  "howToUse": {
+    "title": "How To Use This Leaderboard?",
+    "paragraph1": "Below, you find the control panel for filtering the leaderboard. You can select a desired CEFR level and category to filter the table accordingly. In addition, you can choose to display only open-source/closed-source models, select a specific language models family (e.g. only Llama models), select a specific size range of LLM parameters, or display models that correctly answered a given percentage of questions. To help with readability, the highest performing models are highlighted in green.",
+    "paragraph2": "Underneath the table, you find a bar chart showing the performance of the LLMs for each category and CEFR level to help compare the performance of the LLMs."
+  },
+  "table": {
+    "title": "Model Leaderboard"
+  },
+  "chart": {
+    "title": "Model Performance Comparison",
+    "defaultTitle": "Model Performance Metrics",
+    "loading": "Loading metrics...",
+    "error": "Failed to load model metrics",
+    "noModels": "No models match the selected filters",
+    "score": "Score",
+    "modelsCount": "{{count}} models",
+    "questionCount": "{{n}} questions",
+    "plotMode": {
+      "simple": "Simple",
+      "detailed": "Detailed"
+    },
+    "metricNames": {
+      "total": "Total",
+      "vocabulary": "Vocabulary",
+      "readingComprehension": "Reading Comprehension",
+      "listeningComprehension": "Listening Comprehension",
+      "grammar": "Grammar"
+    }
+  },
+  "filters": {
+    "title": "Filter Models",
+    "cefrLevel": "CEFR Level",
+    "testCategory": "Test Category",
+    "modelType": "Model Type",
+    "sizeRange": "LLM Size Range (Billion Parameters)",
+    "minPerformance": "Minimum Performance: {{value}}%",
+    "showMinPerf": "Show LLMs with minimum {{value}}% performance",
+    "resetFilters": "Reset Filters",
+    "all": "All",
+    "vocabulary": "Vocabulary",
+    "grammar": "Grammar",
+    "readingComprehension": "Reading Comprehension",
+    "listeningComprehension": "Listening Comprehension",
+    "total": "Total",
+    "openSource": "Open Source",
+    "proprietary": "Proprietary (Closed)",
+    "to": "to",
+    "billion": "B",
+    "modelsShown": "Models Shown: {{value}}",
+    "models": "models",
+    "showTopModels": "Show top {{value}} model(s)"
+  }
+}

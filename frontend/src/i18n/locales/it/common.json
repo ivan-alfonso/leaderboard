@@ -1,0 +1,77 @@
+{
+  "theme": {
+    "switchToLight": "Passa alla modalità chiara",
+    "switchToDark": "Passa alla modalità scura",
+    "light": "Chiaro",
+    "dark": "Scuro"
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Termini",
+    "contact": "Contatto",
+    "designedWith": "Progettato con"
+  },
+  "table": {
+    "loading": "Caricamento dati...",
+    "error": "Errore nel caricamento dei dati",
+    "add": "Aggiungi {{entity}}",
+    "addDefault": "Aggiungi voce",
+    "edit": "Modifica {{entity}}",
+    "editDefault": "Modifica voce",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "prev": "Precedente",
+    "next": "Successivo",
+    "page": "Pagina {{current}} di {{total}}",
+    "showing": "Visualizzazione di {{visible}} su {{total}} righe",
+    "filtered": "filtrato",
+    "noOptions": "Nessuna opzione disponibile",
+    "editTitle": "Modifica",
+    "requiredFields": "Si prega di compilare i seguenti campi obbligatori: {{fields}}",
+    "saveFailed": "Salvataggio non riuscito. Verifica i dati inseriti.",
+    "updateFailed": "Aggiornamento non riuscito. Verifica i dati inseriti.",
+    "networkError": "Errore di rete. Riprova.",
+    "resetFilters": "Ripristina filtri"
+  },
+  "filter": {
+    "buttonTitle": "Filtra colonna",
+    "title": "Filtra {{column}}",
+    "operator": "Operatore",
+    "value": "Valore",
+    "clear": "Cancella",
+    "apply": "Applica",
+    "placeholder": "Inserisci valore {{type}}...",
+    "selectPlaceholder": "Seleziona...",
+    "true": "Vero",
+    "false": "Falso",
+    "operators": {
+      "contains": "contiene",
+      "equals": "uguale a",
+      "startsWith": "inizia con",
+      "endsWith": "termina con",
+      "isEmpty": "è vuoto",
+      "isNotEmpty": "non è vuoto",
+      "eq": "= (uguale a)",
+      "ne": "≠ (diverso da)",
+      "gt": "> (maggiore di)",
+      "gte": "≥ (maggiore o uguale a)",
+      "lt": "< (minore di)",
+      "lte": "≤ (minore o uguale a)"
+    }
+  },
+  "sort": {
+    "ascending": "Ordina in modo crescente",
+    "descending": "Ordina in modo decrescente"
+  },
+  "language": {
+    "selectLanguage": "Seleziona lingua",
+    "languages": {
+      "en": "English",
+      "lb": "Lëtzebuergesch",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "pt": "Português"
+    }
+  }
+}

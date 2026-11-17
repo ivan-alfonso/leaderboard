@@ -1,33 +1,44 @@
 services:
-  # Backend API (Free tier - 750 hours/month, spins down after 15 min idle)
   - type: web
-    name: leaderboard-backend-df6787
+    name: letzeval-baf-api-test
     runtime: python
     plan: free
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: cd backend && uvicorn main_api:app --host 0.0.0.0 --port $PORT
+    branch: feat/baf_sql_agent
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main_api:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
-      - key: PORT
-        value: 8000
+      - key: DATABASE_URL
+        value: sqlite:///./data/AI_Sandbox.db
 
-  # Frontend (Free static site)
   - type: web
-    name: leaderboard-frontend-df6787
+    name: letzeval-baf-agent-test
+    runtime: python
+    plan: free
+    branch: feat/baf_sql_agent
+    buildCommand: pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu && pip install --no-cache-dir -r agent/requirements.txt
+    startCommand: cd agent && python agent.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: PORT
+        value: 8765
+      - key: OMP_NUM_THREADS
+        value: 1
+
+  - type: web
+    name: letzeval-baf-web-test
     runtime: static
+    branch: feat/baf_sql_agent
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/build
     envVars:
       - key: VITE_API_URL
-        value: https://leaderboard-backend-df6787.onrender.com
-    headers:
-      - path: /assets/*.js
-        name: Content-Type
-        value: application/javascript
-      - path: /assets/*.css
-        name: Content-Type
-        value: text/css
+        value: https://letzeval-baf-api-test.onrender.com
+      - key: VITE_AGENT_URL
+        value: wss://letzeval-baf-agent-test.onrender.com
     routes:
       - type: rewrite
         source: /*

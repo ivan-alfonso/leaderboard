@@ -1,0 +1,29 @@
+agent:
+  check_transitions_delay: 1.0
+
+nlp:
+  language: en
+  region: LU
+  # Lower threshold for broader intent matching (0.0–1.0)
+  intent_threshold: 0.35
+
+platforms:
+  websocket:
+    host: localhost
+    port: 8765
+    max_size: null
+    # Restrict origins in production; null = allow all (development only)
+    origins: null
+
+db:
+  sql:
+    - letzeval:
+        dialect: sqlite
+        # Relative to the agent/ directory; or set LETZEVAL_DB_PATH env var for absolute path
+        file: ../backend/data/AI_Sandbox.db
+
+# Production notes:
+# - Set origins to your frontend's deployed URL (e.g. https://your-domain.com)
+# - Set LETZEVAL_DB_PATH to an absolute read-only path in production
+# - The agent opens a separate read-only sqlite3 connection for parameterized queries;
+#   the db.sql entry above is registered for framework compatibility only.

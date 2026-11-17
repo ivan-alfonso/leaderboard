@@ -1,0 +1,10 @@
+# LëtzEval BAF agent requirements
+# Install in the besser-demo venv: /home/adhav/besser-demo/.venv/bin/pip install -r requirements.txt
+
+besser-agentic-framework==4.5.0
+torch>=2.0.0          # CPU build sufficient; already installed in besser-demo venv
+scikit-learn>=1.0.0   # Already installed in besser-demo venv
+openai>=1.0.0         # Required by BAF LLMOpenAI (provider=openai)
+websockets==11.0.3    # Pinned by besser-agentic-framework==4.5.0; also used by evaluation_runner.py
+fastapi>=0.100.0      # HTTP bridge (http_wrapper.py)
+uvicorn>=0.20.0       # HTTP bridge (http_wrapper.py)

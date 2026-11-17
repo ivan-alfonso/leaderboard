@@ -1,0 +1,77 @@
+{
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "designedWith": "Designed with"
+  },
+  "table": {
+    "loading": "Loading data...",
+    "error": "Error loading data",
+    "add": "Add {{entity}}",
+    "addDefault": "Add Register",
+    "edit": "Edit {{entity}}",
+    "editDefault": "Edit Register",
+    "cancel": "Cancel",
+    "save": "Save",
+    "prev": "Prev",
+    "next": "Next",
+    "page": "Page {{current}} of {{total}}",
+    "showing": "Showing {{visible}} of {{total}} rows",
+    "filtered": "filtered",
+    "noOptions": "No options available",
+    "editTitle": "Edit",
+    "requiredFields": "Please fill in the following required fields: {{fields}}",
+    "saveFailed": "Failed to save. Please check your input.",
+    "updateFailed": "Failed to update. Please check your input.",
+    "networkError": "Network error. Please try again.",
+    "resetFilters": "Reset Filters"
+  },
+  "filter": {
+    "buttonTitle": "Filter column",
+    "title": "Filter {{column}}",
+    "operator": "Operator",
+    "value": "Value",
+    "clear": "Clear",
+    "apply": "Apply",
+    "placeholder": "Enter {{type}} value...",
+    "selectPlaceholder": "Select...",
+    "true": "True",
+    "false": "False",
+    "operators": {
+      "contains": "contains",
+      "equals": "equals",
+      "startsWith": "starts with",
+      "endsWith": "ends with",
+      "isEmpty": "is empty",
+      "isNotEmpty": "is not empty",
+      "eq": "= (equals)",
+      "ne": "≠ (not equals)",
+      "gt": "> (greater than)",
+      "gte": "≥ (greater or equal)",
+      "lt": "< (less than)",
+      "lte": "≤ (less or equal)"
+    }
+  },
+  "sort": {
+    "ascending": "Sort ascending",
+    "descending": "Sort descending"
+  },
+  "language": {
+    "selectLanguage": "Select language",
+    "languages": {
+      "en": "English",
+      "lb": "Lëtzebuergesch",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "pt": "Português"
+    }
+  }
+}

@@ -1,0 +1,4369 @@
+{
+  "project": {
+    "id": "28adc479-d233-4139-808a-8edb3dca1aad",
+    "type": "Project",
+    "schemaVersion": 6,
+    "name": "LëtzEval Agent",
+    "description": "LëtzEval BAF conversational assistant — hub-and-spoke intent-classifier state machine",
+    "diagrams": {
+      "AgentDiagram": [
+        {
+          "id": "71d30c1f-d2ea-40f3-9028-357227a17a8f",
+          "title": "LëtzEval Agent State Machine",
+          "model": {
+            "version": "3.0.0",
+            "type": "AgentDiagram",
+            "size": {
+              "width": 1800,
+              "height": 4960
+            },
+            "elements": {
+              "a019703c-985d-4645-afeb-1f3c924b95db": {
+                "id": "a019703c-985d-4645-afeb-1f3c924b95db",
+                "name": "",
+                "type": "StateInitialNode",
+                "owner": null,
+                "bounds": {
+                  "x": 100,
+                  "y": 100,
+                  "width": 45,
+                  "height": 45
+                }
+              },
+              "a90e1e16-2466-42fb-a01d-7f774db0a270": {
+                "id": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                "name": "initial_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 200,
+                  "y": 87,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "9a8aa66e-0b5e-4de5-a207-f8faa114de91": {
+                "id": "9a8aa66e-0b5e-4de5-a207-f8faa114de91",
+                "name": "explain_leaderboard_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 300,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "05661f54-2441-409e-b3e1-ec10bda115e0": {
+                "id": "05661f54-2441-409e-b3e1-ec10bda115e0",
+                "name": "explain_methodology_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 1110,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "71cea0ff-be59-4ec6-b5ab-85db6f9fb9dc": {
+                "id": "71cea0ff-be59-4ec6-b5ab-85db6f9fb9dc",
+                "name": "lookup_score_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 1920,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "f6fc52a0-5bc4-44bb-8c90-7deeee034a88": {
+                "id": "f6fc52a0-5bc4-44bb-8c90-7deeee034a88",
+                "name": "rank_models_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 3030,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "63f5d757-4937-431c-aa4c-66a8d207d080": {
+                "id": "63f5d757-4937-431c-aa4c-66a8d207d080",
+                "name": "compare_models_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 3930,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "644d2d22-c385-4615-9ec0-027b036d44a7": {
+                "id": "644d2d22-c385-4615-9ec0-027b036d44a7",
+                "name": "filter_results_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 300,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "10f3d9ba-5b1c-4c85-9fd4-d7f8279f7022": {
+                "id": "10f3d9ba-5b1c-4c85-9fd4-d7f8279f7022",
+                "name": "explain_metric_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 1110,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "5e98234a-5b70-467b-86a5-538c96696b25": {
+                "id": "5e98234a-5b70-467b-86a5-538c96696b25",
+                "name": "data_coverage_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 1920,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "4eb79bb0-239a-4eed-bee1-2bd51f505c28": {
+                "id": "4eb79bb0-239a-4eed-bee1-2bd51f505c28",
+                "name": "reset_view_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 2730,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "c5fad6f1-f043-47eb-9c03-9854036c637b": {
+                "id": "c5fad6f1-f043-47eb-9c03-9854036c637b",
+                "name": "out_of_scope_state",
+                "type": "AgentState",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 3540,
+                  "width": 200,
+                  "height": 40
+                },
+                "stateType": "standard",
+                "fallbackBodyEnabled": true,
+                "actions": [],
+                "fallbackActions": [],
+                "bodies": [],
+                "fallbackBodies": []
+              },
+              "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1": {
+                "id": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "name": "explain_leaderboard",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 360,
+                  "width": 560,
+                  "height": 670
+                },
+                "bodies": [
+                  "2de81081-7340-411c-9831-4adda69c9833",
+                  "15a72d4d-ca78-4a5c-9092-cf3ebf9a4ee7",
+                  "73cac2fa-7122-41ef-a8ef-ca84d360d52b",
+                  "775ad76b-e4e6-4c66-95be-ee5d8cf6018f",
+                  "f4bc383b-9661-4500-9a04-178311419fad",
+                  "961c3a18-8292-4066-8390-346392e29b72",
+                  "f52a0f0b-b436-4efb-ae01-09010f2451c5",
+                  "a800a2f1-b4ff-4f84-88b1-8636fc5ca180",
+                  "bd7e8bdf-b77c-45ed-aa27-661d74c5901b",
+                  "38b692da-f377-42af-9507-c79daa8300db",
+                  "6d045484-678e-48ee-bfac-2a5fd40ffb5f",
+                  "e181ba07-aadd-4aa2-b1bd-d9617a00949b",
+                  "c358868b-0e56-4a1f-b638-f4bb144ffb18",
+                  "b77660ee-df49-42b0-9e22-48e4ec009209",
+                  "d1fc2808-a121-4590-9d3e-c6b6632e9162",
+                  "086c502f-ada8-423d-aaf1-e9825e1ce85d",
+                  "28b31655-6851-408f-a7ae-09e74636b16a",
+                  "90a60121-049c-438a-83eb-66dfd074781e",
+                  "76460d96-a119-46e8-a374-a10e17bd66c1",
+                  "bd033d8d-7c9d-4dc1-80d6-f8973c4644ec"
+                ],
+                "intent_description": "User wants an overview of what this leaderboard and evaluation site is about."
+              },
+              "2de81081-7340-411c-9831-4adda69c9833": {
+                "id": "2de81081-7340-411c-9831-4adda69c9833",
+                "name": "Orient me to this page.",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 430.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "15a72d4d-ca78-4a5c-9092-cf3ebf9a4ee7": {
+                "id": "15a72d4d-ca78-4a5c-9092-cf3ebf9a4ee7",
+                "name": "Tell me about this site.",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 460.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "73cac2fa-7122-41ef-a8ef-ca84d360d52b": {
+                "id": "73cac2fa-7122-41ef-a8ef-ca84d360d52b",
+                "name": "What is the purpose of this page?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 490.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "775ad76b-e4e6-4c66-95be-ee5d8cf6018f": {
+                "id": "775ad76b-e4e6-4c66-95be-ee5d8cf6018f",
+                "name": "I am new here. What does this page do?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 520.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "f4bc383b-9661-4500-9a04-178311419fad": {
+                "id": "f4bc383b-9661-4500-9a04-178311419fad",
+                "name": "Give me the big picture of this project.",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 550.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "961c3a18-8292-4066-8390-346392e29b72": {
+                "id": "961c3a18-8292-4066-8390-346392e29b72",
+                "name": "What kind of resource is this leaderboard?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 580.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "f52a0f0b-b436-4efb-ae01-09010f2451c5": {
+                "id": "f52a0f0b-b436-4efb-ae01-09010f2451c5",
+                "name": "Who is this comparison intended for?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 610.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a800a2f1-b4ff-4f84-88b1-8636fc5ca180": {
+                "id": "a800a2f1-b4ff-4f84-88b1-8636fc5ca180",
+                "name": "Why was this evaluation initiative created?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 640.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "bd7e8bdf-b77c-45ed-aa27-661d74c5901b": {
+                "id": "bd7e8bdf-b77c-45ed-aa27-661d74c5901b",
+                "name": "Tell me about LëtzEval and why it matters.",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 670.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "38b692da-f377-42af-9507-c79daa8300db": {
+                "id": "38b692da-f377-42af-9507-c79daa8300db",
+                "name": "Explain the Luxembourgish LLM evaluation project.",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 700.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "6d045484-678e-48ee-bfac-2a5fd40ffb5f": {
+                "id": "6d045484-678e-48ee-bfac-2a5fd40ffb5f",
+                "name": "What can researchers use this page for?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 730.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "e181ba07-aadd-4aa2-b1bd-d9617a00949b": {
+                "id": "e181ba07-aadd-4aa2-b1bd-d9617a00949b",
+                "name": "Can you introduce this evaluation platform?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 760.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "c358868b-0e56-4a1f-b638-f4bb144ffb18": {
+                "id": "c358868b-0e56-4a1f-b638-f4bb144ffb18",
+                "name": "What does this project aim to achieve?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 790.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "b77660ee-df49-42b0-9e22-48e4ec009209": {
+                "id": "b77660ee-df49-42b0-9e22-48e4ec009209",
+                "name": "Why are language models tested in Luxembourgish?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 820.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "d1fc2808-a121-4590-9d3e-c6b6632e9162": {
+                "id": "d1fc2808-a121-4590-9d3e-c6b6632e9162",
+                "name": "What does the Luxembourgish LLM leaderboard show?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 850.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "086c502f-ada8-423d-aaf1-e9825e1ce85d": {
+                "id": "086c502f-ada8-423d-aaf1-e9825e1ce85d",
+                "name": "Why should someone look at these results?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 880.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "28b31655-6851-408f-a7ae-09e74636b16a": {
+                "id": "28b31655-6851-408f-a7ae-09e74636b16a",
+                "name": "How is this leaderboard useful for AI research?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 910.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "90a60121-049c-438a-83eb-66dfd074781e": {
+                "id": "90a60121-049c-438a-83eb-66dfd074781e",
+                "name": "What information does this evaluation site provide?",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 940.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "76460d96-a119-46e8-a374-a10e17bd66c1": {
+                "id": "76460d96-a119-46e8-a374-a10e17bd66c1",
+                "name": "Walk me through what this page is for.",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 970.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "bd033d8d-7c9d-4dc1-80d6-f8973c4644ec": {
+                "id": "bd033d8d-7c9d-4dc1-80d6-f8973c4644ec",
+                "name": "Help me understand what this website does.",
+                "type": "AgentIntentBody",
+                "owner": "8f52dc5f-85d7-48fe-a79d-d17430c5a3f1",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1000.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "9e85902b-bb8a-4fd4-922f-f36929aff661": {
+                "id": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "name": "explain_methodology",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 1170,
+                  "width": 560,
+                  "height": 670
+                },
+                "bodies": [
+                  "d3c2a69f-1bb3-41f7-b1d2-39cfcb9855e2",
+                  "2213fefe-1e2c-4848-a14c-5625ac8c1563",
+                  "11694f6d-a359-4acd-9526-31d71f982bd2",
+                  "6f6eee9d-7c51-4dac-ae17-bd2868096852",
+                  "134def39-bf77-4001-8e04-6c5c6e3c884e",
+                  "dd017f47-e4fc-4d68-9181-5301abe02dd8",
+                  "c7f8a7e2-6c5e-44ad-b263-29f3ada35a6c",
+                  "7495011b-d4dc-4274-a9c9-caa19c1dcdfc",
+                  "a6a050de-a2ff-4571-ad2f-b9049a9ab67f",
+                  "166947f3-1ed1-4d54-a1cf-4bf6a94d3a25",
+                  "2222b037-de07-4e05-8bef-19f32c405364",
+                  "6600dff3-aecd-4f12-be2b-2556ed34e943",
+                  "531ac6ae-3e48-4c38-b622-3e1d7b737d87",
+                  "baf1b11a-2073-4e8f-9a7b-4c564e4d2c04",
+                  "cb4bee45-eca1-445d-905f-3eb9ab3d892f",
+                  "d77d067a-fe82-442d-b1b5-6855ce8c6dcd",
+                  "c4a24c92-5b0c-4e37-9b4c-b96029764fbc",
+                  "810897f1-668a-467a-8276-cc5aa6dfcfbe",
+                  "4c7039ad-d081-469a-9d6f-d25ec3130739",
+                  "80e527aa-21a2-40bf-98d9-fccde843c1b8"
+                ],
+                "intent_description": "User wants to understand how the LLM evaluation was conducted."
+              },
+              "d3c2a69f-1bb3-41f7-b1d2-39cfcb9855e2": {
+                "id": "d3c2a69f-1bb3-41f7-b1d2-39cfcb9855e2",
+                "name": "How were the models tested?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1240.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "2213fefe-1e2c-4848-a14c-5625ac8c1563": {
+                "id": "2213fefe-1e2c-4848-a14c-5625ac8c1563",
+                "name": "Explain the evaluation methodology.",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1270.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "11694f6d-a359-4acd-9526-31d71f982bd2": {
+                "id": "11694f6d-a359-4acd-9526-31d71f982bd2",
+                "name": "How are the model scores calculated?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1300.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "6f6eee9d-7c51-4dac-ae17-bd2868096852": {
+                "id": "6f6eee9d-7c51-4dac-ae17-bd2868096852",
+                "name": "What procedure was used to evaluate the LLMs?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1330.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "134def39-bf77-4001-8e04-6c5c6e3c884e": {
+                "id": "134def39-bf77-4001-8e04-6c5c6e3c884e",
+                "name": "How does the evaluation process work?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1360.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "dd017f47-e4fc-4d68-9181-5301abe02dd8": {
+                "id": "dd017f47-e4fc-4d68-9181-5301abe02dd8",
+                "name": "How were the test questions selected?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1390.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "c7f8a7e2-6c5e-44ad-b263-29f3ada35a6c": {
+                "id": "c7f8a7e2-6c5e-44ad-b263-29f3ada35a6c",
+                "name": "What kind of questions were given to the language models?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1420.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "7495011b-d4dc-4274-a9c9-caa19c1dcdfc": {
+                "id": "7495011b-d4dc-4274-a9c9-caa19c1dcdfc",
+                "name": "How are the answers graded?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1450.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a6a050de-a2ff-4571-ad2f-b9049a9ab67f": {
+                "id": "a6a050de-a2ff-4571-ad2f-b9049a9ab67f",
+                "name": "Were the test prompts standardized across systems?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1480.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "166947f3-1ed1-4d54-a1cf-4bf6a94d3a25": {
+                "id": "166947f3-1ed1-4d54-a1cf-4bf6a94d3a25",
+                "name": "What determines a model's final evaluation score?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1510.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "2222b037-de07-4e05-8bef-19f32c405364": {
+                "id": "2222b037-de07-4e05-8bef-19f32c405364",
+                "name": "Describe the grading protocol.",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1540.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "6600dff3-aecd-4f12-be2b-2556ed34e943": {
+                "id": "6600dff3-aecd-4f12-be2b-2556ed34e943",
+                "name": "How did you ensure the evaluations were consistent?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1570.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "531ac6ae-3e48-4c38-b622-3e1d7b737d87": {
+                "id": "531ac6ae-3e48-4c38-b622-3e1d7b737d87",
+                "name": "Does the method report uncertainty or confidence?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1600.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "baf1b11a-2073-4e8f-9a7b-4c564e4d2c04": {
+                "id": "baf1b11a-2073-4e8f-9a7b-4c564e4d2c04",
+                "name": "What was done to validate the assessment methodology?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1630.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "cb4bee45-eca1-445d-905f-3eb9ab3d892f": {
+                "id": "cb4bee45-eca1-445d-905f-3eb9ab3d892f",
+                "name": "How were model responses assessed for correctness?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1660.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "d77d067a-fe82-442d-b1b5-6855ce8c6dcd": {
+                "id": "d77d067a-fe82-442d-b1b5-6855ce8c6dcd",
+                "name": "Are the results based on multiple-choice questions?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1690.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "c4a24c92-5b0c-4e37-9b4c-b96029764fbc": {
+                "id": "c4a24c92-5b0c-4e37-9b4c-b96029764fbc",
+                "name": "How was the Luxembourgish language test designed?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1720.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "810897f1-668a-467a-8276-cc5aa6dfcfbe": {
+                "id": "810897f1-668a-467a-8276-cc5aa6dfcfbe",
+                "name": "What makes the evaluation methodology reliable?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1750.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "4c7039ad-d081-469a-9d6f-d25ec3130739": {
+                "id": "4c7039ad-d081-469a-9d6f-d25ec3130739",
+                "name": "How were the different CEFR-level scores obtained?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1780.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "80e527aa-21a2-40bf-98d9-fccde843c1b8": {
+                "id": "80e527aa-21a2-40bf-98d9-fccde843c1b8",
+                "name": "Can you walk me through the benchmark procedure?",
+                "type": "AgentIntentBody",
+                "owner": "9e85902b-bb8a-4fd4-922f-f36929aff661",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 1810.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "068e2562-b9aa-433c-9d95-8fb0b9f21986": {
+                "id": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "name": "lookup_score",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 1980,
+                  "width": 560,
+                  "height": 970
+                },
+                "bodies": [
+                  "1417c77c-9a08-4987-a4f9-bff43a217014",
+                  "22494543-ad01-42d4-ba61-b26ca572c8c2",
+                  "bd31939e-739b-41ca-86bb-80db6cdc44ac",
+                  "b36162aa-e6ee-4b35-9a48-6d7ea666a1b2",
+                  "a1e379b4-b285-4e4b-942e-f06a9ff98423",
+                  "c58279ed-aac1-4e4a-b9f4-340ce91c6902",
+                  "e24f0df4-f581-48d3-a0f1-0c7a515f9ade",
+                  "62fec977-c44e-4e18-bf23-afb97b971974",
+                  "296c8801-fd42-4423-b4d8-f3f7e2217623",
+                  "73827aff-b626-4be8-a658-2b54e1373ae6",
+                  "19722fe3-f2e5-4ae2-bafa-e6e6ecab2878",
+                  "18b08e03-6000-4854-b21a-f4ecd85aa683",
+                  "68cb9e0e-ddc0-4f1b-94b6-d43221335480",
+                  "cf2d2a78-7d1f-4611-a263-ae327362ccb5",
+                  "fc6e019d-3434-4d82-b3ed-281ce0dbcc56",
+                  "fe62ecc0-ffd6-4b17-b271-02094b2d60bc",
+                  "0ef91c4c-6759-4820-87a4-67b088a26ac8",
+                  "118f8d83-4b04-4dc0-90d0-e65c920ae87d",
+                  "9da89705-0aca-449c-8893-5988596f12e3",
+                  "d90ab849-fad7-4712-9a86-5854032481c1",
+                  "20b71842-33c1-474d-812b-bd15e7bbc7cf",
+                  "a80201ac-17de-41ff-84ce-d0cd0c160a40",
+                  "b22a94c1-a777-4ff8-b99c-2f80118e772f",
+                  "797edd53-496b-497e-a6c5-22deedfff5d0",
+                  "958b26bf-954d-469a-882b-e9cbc188e4d4",
+                  "e14337f4-341b-411d-accf-378157867944",
+                  "71c25913-e0ea-42a3-a300-74681d4279d6",
+                  "3a09b10b-d1b3-46c7-aeeb-99be515ae647",
+                  "f6695eae-bad4-48e0-b618-285efd355d05",
+                  "df7f15d5-b1ec-4b2b-9489-29ef5b175c70"
+                ],
+                "intent_description": "User wants the score of a specific model at a specific CEFR level and/or category."
+              },
+              "1417c77c-9a08-4987-a4f9-bff43a217014": {
+                "id": "1417c77c-9a08-4987-a4f9-bff43a217014",
+                "name": "How did Model X score at B2?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2050.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "22494543-ad01-42d4-ba61-b26ca572c8c2": {
+                "id": "22494543-ad01-42d4-ba61-b26ca572c8c2",
+                "name": "What is the C1 Grammar score for Model Y?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2080.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "bd31939e-739b-41ca-86bb-80db6cdc44ac": {
+                "id": "bd31939e-739b-41ca-86bb-80db6cdc44ac",
+                "name": "What score did Model X achieve in Vocabulary?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2110.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "b36162aa-e6ee-4b35-9a48-6d7ea666a1b2": {
+                "id": "b36162aa-e6ee-4b35-9a48-6d7ea666a1b2",
+                "name": "I need Model X's A2 score, not its position.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2140.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a1e379b4-b285-4e4b-942e-f06a9ff98423": {
+                "id": "a1e379b4-b285-4e4b-942e-f06a9ff98423",
+                "name": "What percentage did Model X get at A1?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2170.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "c58279ed-aac1-4e4a-b9f4-340ce91c6902": {
+                "id": "c58279ed-aac1-4e4a-b9f4-340ce91c6902",
+                "name": "How well did Model Y perform at C2?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2200.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "e24f0df4-f581-48d3-a0f1-0c7a515f9ade": {
+                "id": "e24f0df4-f581-48d3-a0f1-0c7a515f9ade",
+                "name": "Find the Listening Comprehension score of Model X.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2230.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "62fec977-c44e-4e18-bf23-afb97b971974": {
+                "id": "62fec977-c44e-4e18-bf23-afb97b971974",
+                "name": "Give me the B1 evaluation result for Model X.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2260.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "296c8801-fd42-4423-b4d8-f3f7e2217623": {
+                "id": "296c8801-fd42-4423-b4d8-f3f7e2217623",
+                "name": "Can you retrieve Model X's Grammar performance?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2290.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "73827aff-b626-4be8-a658-2b54e1373ae6": {
+                "id": "73827aff-b626-4be8-a658-2b54e1373ae6",
+                "name": "What was Model Y's score in A2 Vocabulary?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2320.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "19722fe3-f2e5-4ae2-bafa-e6e6ecab2878": {
+                "id": "19722fe3-f2e5-4ae2-bafa-e6e6ecab2878",
+                "name": "Tell me the percentage score for Model X at C1.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2350.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "18b08e03-6000-4854-b21a-f4ecd85aa683": {
+                "id": "18b08e03-6000-4854-b21a-f4ecd85aa683",
+                "name": "What result did Model X achieve for C2 Reading Comprehension?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2380.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "68cb9e0e-ddc0-4f1b-94b6-d43221335480": {
+                "id": "68cb9e0e-ddc0-4f1b-94b6-d43221335480",
+                "name": "Look up the B2 Grammar score of Model Y.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2410.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "cf2d2a78-7d1f-4611-a263-ae327362ccb5": {
+                "id": "cf2d2a78-7d1f-4611-a263-ae327362ccb5",
+                "name": "Can you find the total score for Model X at A2?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2440.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "fc6e019d-3434-4d82-b3ed-281ce0dbcc56": {
+                "id": "fc6e019d-3434-4d82-b3ed-281ce0dbcc56",
+                "name": "What was Model X's recorded B2 reading result?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2470.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "fe62ecc0-ffd6-4b17-b271-02094b2d60bc": {
+                "id": "fe62ecc0-ffd6-4b17-b271-02094b2d60bc",
+                "name": "Find the grammar percentage reported for Model Y at B1.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2500.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "0ef91c4c-6759-4820-87a4-67b088a26ac8": {
+                "id": "0ef91c4c-6759-4820-87a4-67b088a26ac8",
+                "name": "What did Model X get in C2 listening?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2530.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "118f8d83-4b04-4dc0-90d0-e65c920ae87d": {
+                "id": "118f8d83-4b04-4dc0-90d0-e65c920ae87d",
+                "name": "Show me just one score: Model Y at A1 total.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2560.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "9da89705-0aca-449c-8893-5988596f12e3": {
+                "id": "9da89705-0aca-449c-8893-5988596f12e3",
+                "name": "Give me the results for Model X at B2 Grammar.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2590.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "d90ab849-fad7-4712-9a86-5854032481c1": {
+                "id": "d90ab849-fad7-4712-9a86-5854032481c1",
+                "name": "What score does this model get at C1 Total?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2620.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "20b71842-33c1-474d-812b-bd15e7bbc7cf": {
+                "id": "20b71842-33c1-474d-812b-bd15e7bbc7cf",
+                "name": "Show the B2 Grammar result for this model.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2650.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a80201ac-17de-41ff-84ce-d0cd0c160a40": {
+                "id": "a80201ac-17de-41ff-84ce-d0cd0c160a40",
+                "name": "Get the C2 vocabulary score for this LLM.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2680.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "b22a94c1-a777-4ff8-b99c-2f80118e772f": {
+                "id": "b22a94c1-a777-4ff8-b99c-2f80118e772f",
+                "name": "What is the A1 score for this language model?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2710.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "797edd53-496b-497e-a6c5-22deedfff5d0": {
+                "id": "797edd53-496b-497e-a6c5-22deedfff5d0",
+                "name": "Give me results for this model.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2740.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "958b26bf-954d-469a-882b-e9cbc188e4d4": {
+                "id": "958b26bf-954d-469a-882b-e9cbc188e4d4",
+                "name": "Get results for this LLM.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2770.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "e14337f4-341b-411d-accf-378157867944": {
+                "id": "e14337f4-341b-411d-accf-378157867944",
+                "name": "Show results for this language model.",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2800.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "71c25913-e0ea-42a3-a300-74681d4279d6": {
+                "id": "71c25913-e0ea-42a3-a300-74681d4279d6",
+                "name": "What is Model X B2 score?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2830.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "3a09b10b-d1b3-46c7-aeeb-99be515ae647": {
+                "id": "3a09b10b-d1b3-46c7-aeeb-99be515ae647",
+                "name": "What is Model Y C1 Grammar score?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2860.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "f6695eae-bad4-48e0-b618-285efd355d05": {
+                "id": "f6695eae-bad4-48e0-b618-285efd355d05",
+                "name": "What is this model's B2 Grammar score?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2890.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "df7f15d5-b1ec-4b2b-9489-29ef5b175c70": {
+                "id": "df7f15d5-b1ec-4b2b-9489-29ef5b175c70",
+                "name": "What is Model X's score at A1 Total?",
+                "type": "AgentIntentBody",
+                "owner": "068e2562-b9aa-433c-9d95-8fb0b9f21986",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 2920.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c": {
+                "id": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "name": "rank_models",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 3090,
+                  "width": 560,
+                  "height": 760
+                },
+                "bodies": [
+                  "5cb12099-3b61-4825-b790-a5bb84b987b3",
+                  "236bc65a-f790-4230-bcff-0e5cfe5c550e",
+                  "6abbc99c-d576-4b69-82db-e2e89c7126c3",
+                  "2ef6b882-dcb0-4191-9769-2929fbef022e",
+                  "ef02a8c0-d147-45bb-8a51-4cfc35bc3f88",
+                  "528ab0c3-4648-4117-add9-5f19150d126d",
+                  "bdf3017d-40cf-4c2a-8e36-1f99133340f3",
+                  "8878dc4e-2f68-4183-b2df-8ca3d53524ef",
+                  "429a3814-2ec3-4feb-9e6a-6fd91057ee83",
+                  "1b5acf2b-dc7a-447e-ba36-b173ba538e19",
+                  "88bf0597-cac4-4682-bd2f-169c0f19d30e",
+                  "27b64705-81f5-45ff-ab20-e4bd216f9860",
+                  "6024d13c-efdd-4a78-9a62-1ef7753ea9f4",
+                  "eaf405b4-7e0e-4c32-96b7-c76c523510eb",
+                  "a99e2143-e708-4e65-b14a-b786a80110d7",
+                  "85d464d2-8786-4259-98f1-f732654c81f0",
+                  "623d7520-9138-4f08-af47-d3ad77719df3",
+                  "b6fa6295-5b05-418c-8466-103c235aea97",
+                  "01eabe96-74e9-44f1-b64d-0fe5c28a04e5",
+                  "49970e9f-e629-4fbd-b8a7-48f6c3350faf",
+                  "9fdd7de2-7952-4afc-b8e4-9b6da1827362",
+                  "697f6087-f9d3-47aa-8cf5-a1d61b6e843f",
+                  "5dbb3a4a-d418-4d6b-884a-106b0001d68d"
+                ],
+                "intent_description": "User wants a sorted list or ranking of models by a metric."
+              },
+              "5cb12099-3b61-4825-b790-a5bb84b987b3": {
+                "id": "5cb12099-3b61-4825-b790-a5bb84b987b3",
+                "name": "Which model tops the leaderboard?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3160.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "236bc65a-f790-4230-bcff-0e5cfe5c550e": {
+                "id": "236bc65a-f790-4230-bcff-0e5cfe5c550e",
+                "name": "Who tops the C1 reading test?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3190.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "6abbc99c-d576-4b69-82db-e2e89c7126c3": {
+                "id": "6abbc99c-d576-4b69-82db-e2e89c7126c3",
+                "name": "Which LLM has the strongest overall score?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3220.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "2ef6b882-dcb0-4191-9769-2929fbef022e": {
+                "id": "2ef6b882-dcb0-4191-9769-2929fbef022e",
+                "name": "Rank the models by their B2 performance.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3250.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "ef02a8c0-d147-45bb-8a51-4cfc35bc3f88": {
+                "id": "ef02a8c0-d147-45bb-8a51-4cfc35bc3f88",
+                "name": "What are the three best models for Grammar?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3280.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "528ab0c3-4648-4117-add9-5f19150d126d": {
+                "id": "528ab0c3-4648-4117-add9-5f19150d126d",
+                "name": "Which open-source models score highest at C1?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3310.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "bdf3017d-40cf-4c2a-8e36-1f99133340f3": {
+                "id": "bdf3017d-40cf-4c2a-8e36-1f99133340f3",
+                "name": "List the ten highest-scoring language models.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3340.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "8878dc4e-2f68-4183-b2df-8ca3d53524ef": {
+                "id": "8878dc4e-2f68-4183-b2df-8ca3d53524ef",
+                "name": "Who leads the rankings for Vocabulary?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3370.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "429a3814-2ec3-4feb-9e6a-6fd91057ee83": {
+                "id": "429a3814-2ec3-4feb-9e6a-6fd91057ee83",
+                "name": "Which model has the highest C2 score?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3400.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "1b5acf2b-dc7a-447e-ba36-b173ba538e19": {
+                "id": "1b5acf2b-dc7a-447e-ba36-b173ba538e19",
+                "name": "Show me the worst performers at A1.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3430.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "88bf0597-cac4-4682-bd2f-169c0f19d30e": {
+                "id": "88bf0597-cac4-4682-bd2f-169c0f19d30e",
+                "name": "List the top five open-source LLMs for B1 Grammar.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3460.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "27b64705-81f5-45ff-ab20-e4bd216f9860": {
+                "id": "27b64705-81f5-45ff-ab20-e4bd216f9860",
+                "name": "Sort the models from best to worst by C1 score.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3490.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "6024d13c-efdd-4a78-9a62-1ef7753ea9f4": {
+                "id": "6024d13c-efdd-4a78-9a62-1ef7753ea9f4",
+                "name": "Which model ranks first in the B2 category?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3520.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "eaf405b4-7e0e-4c32-96b7-c76c523510eb": {
+                "id": "eaf405b4-7e0e-4c32-96b7-c76c523510eb",
+                "name": "Identify the strongest models at advanced CEFR levels.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3550.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a99e2143-e708-4e65-b14a-b786a80110d7": {
+                "id": "a99e2143-e708-4e65-b14a-b786a80110d7",
+                "name": "Find the leaders among openly licensed systems.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3580.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "85d464d2-8786-4259-98f1-f732654c81f0": {
+                "id": "85d464d2-8786-4259-98f1-f732654c81f0",
+                "name": "Who got the strongest B2 vocabulary score?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3610.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "623d7520-9138-4f08-af47-d3ad77719df3": {
+                "id": "623d7520-9138-4f08-af47-d3ad77719df3",
+                "name": "Which models achieved the highest scores in C2 reading?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3640.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "b6fa6295-5b05-418c-8466-103c235aea97": {
+                "id": "b6fa6295-5b05-418c-8466-103c235aea97",
+                "name": "List the best closed-source models for Vocabulary.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3670.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "01eabe96-74e9-44f1-b64d-0fe5c28a04e5": {
+                "id": "01eabe96-74e9-44f1-b64d-0fe5c28a04e5",
+                "name": "Show a leaderboard ordered by grammar accuracy.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3700.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "49970e9f-e629-4fbd-b8a7-48f6c3350faf": {
+                "id": "49970e9f-e629-4fbd-b8a7-48f6c3350faf",
+                "name": "Bottom three models for C2 please.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3730.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "9fdd7de2-7952-4afc-b8e4-9b6da1827362": {
+                "id": "9fdd7de2-7952-4afc-b8e4-9b6da1827362",
+                "name": "Show the top 5 models for C1 Total.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3760.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "697f6087-f9d3-47aa-8cf5-a1d61b6e843f": {
+                "id": "697f6087-f9d3-47aa-8cf5-a1d61b6e843f",
+                "name": "Rank models by Macro Average.",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3790.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "5dbb3a4a-d418-4d6b-884a-106b0001d68d": {
+                "id": "5dbb3a4a-d418-4d6b-884a-106b0001d68d",
+                "name": "Who scores highest overall?",
+                "type": "AgentIntentBody",
+                "owner": "5b01c6ee-8e5a-4fe3-8d7a-05a297fa846c",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 3820.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "684f6fa6-c5d9-45cd-bf23-ae67b03b5681": {
+                "id": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "name": "compare_models",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 50,
+                  "y": 3990,
+                  "width": 560,
+                  "height": 790
+                },
+                "bodies": [
+                  "8c2b245f-7218-493a-ac08-6675030722fb",
+                  "64148e7b-8b18-45ed-bdd3-972c487dd87b",
+                  "574a8707-dd44-4190-8f2f-79b1750d0805",
+                  "a912e5cf-b3d4-4857-ba69-d2903f11f01a",
+                  "3f110370-f91a-4dc4-a751-64ae010f4342",
+                  "e24a5fba-1de2-4e16-b949-7c78505d5445",
+                  "79bbd94d-bcde-4486-b304-d1566cff5c98",
+                  "24cfcd10-9a39-4088-9e1f-122e629675be",
+                  "7e15328f-7781-4b07-91b9-a74b7f0fbee6",
+                  "46bb67ce-5564-4c46-a14a-dfa1f7ef5613",
+                  "4db99c3c-939c-442c-ba23-44f436dbdf47",
+                  "4e8be441-c3a3-475d-ae0c-3450e675c0b3",
+                  "89d1d97a-244b-4904-800a-1ca05b8b8cac",
+                  "61936262-65e9-4dc1-911c-9b05abd08f2d",
+                  "26720dfb-a992-45b0-94cf-f5678a939df6",
+                  "2f837f84-3417-44b3-ada3-372350e47ed5",
+                  "8e100b18-95ce-49c9-8384-1537ce72a0e7",
+                  "a426f458-898e-4bcf-b97f-5485f24e1641",
+                  "181ccf71-4a45-46ab-8e5b-f134d799d01f",
+                  "67e2fc20-7e07-490e-b188-7ebc2ec5d34e",
+                  "1a8c121e-8b8e-4b6a-aba2-5a5b1025be7f",
+                  "42ef3d81-c9fa-4f9d-b2e5-1945abf59e7b",
+                  "ddc1e016-4931-4e77-99a4-ddbda013911d",
+                  "5d332830-cdfc-4dc9-bf6c-be956c0626da"
+                ],
+                "intent_description": "User wants to compare two or more models against each other."
+              },
+              "8c2b245f-7218-493a-ac08-6675030722fb": {
+                "id": "8c2b245f-7218-493a-ac08-6675030722fb",
+                "name": "Compare Model X with Model Y.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4060.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "64148e7b-8b18-45ed-bdd3-972c487dd87b": {
+                "id": "64148e7b-8b18-45ed-bdd3-972c487dd87b",
+                "name": "Which performs better, Model X or Model Y?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4090.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "574a8707-dd44-4190-8f2f-79b1750d0805": {
+                "id": "574a8707-dd44-4190-8f2f-79b1750d0805",
+                "name": "How do Model X and Model Y differ at B2?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4120.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a912e5cf-b3d4-4857-ba69-d2903f11f01a": {
+                "id": "a912e5cf-b3d4-4857-ba69-d2903f11f01a",
+                "name": "Compare the Grammar scores of Model X and Model Y.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4150.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "3f110370-f91a-4dc4-a751-64ae010f4342": {
+                "id": "3f110370-f91a-4dc4-a751-64ae010f4342",
+                "name": "Which of these two models performs better in Vocabulary?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4180.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "e24a5fba-1de2-4e16-b949-7c78505d5445": {
+                "id": "e24a5fba-1de2-4e16-b949-7c78505d5445",
+                "name": "Show the performance differences between Model X and Model Y.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4210.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "79bbd94d-bcde-4486-b304-d1566cff5c98": {
+                "id": "79bbd94d-bcde-4486-b304-d1566cff5c98",
+                "name": "How does Model X compare with Model Y across CEFR levels?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4240.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "24cfcd10-9a39-4088-9e1f-122e629675be": {
+                "id": "24cfcd10-9a39-4088-9e1f-122e629675be",
+                "name": "Compare these three language models on Listening Comprehension.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4270.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "7e15328f-7781-4b07-91b9-a74b7f0fbee6": {
+                "id": "7e15328f-7781-4b07-91b9-a74b7f0fbee6",
+                "name": "Is Model X stronger than Model Y on advanced language tasks?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4300.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "46bb67ce-5564-4c46-a14a-dfa1f7ef5613": {
+                "id": "46bb67ce-5564-4c46-a14a-dfa1f7ef5613",
+                "name": "What is the score difference between Model X and Model Y at C1?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4330.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "4db99c3c-939c-442c-ba23-44f436dbdf47": {
+                "id": "4db99c3c-939c-442c-ba23-44f436dbdf47",
+                "name": "Show a head-to-head for Model X and Model Y at A2.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4360.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "4e8be441-c3a3-475d-ae0c-3450e675c0b3": {
+                "id": "4e8be441-c3a3-475d-ae0c-3450e675c0b3",
+                "name": "Which of the selected models performs better in Reading Comprehension?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4390.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "89d1d97a-244b-4904-800a-1ca05b8b8cac": {
+                "id": "89d1d97a-244b-4904-800a-1ca05b8b8cac",
+                "name": "Show a side-by-side evaluation of Model X and Model Y.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4420.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "61936262-65e9-4dc1-911c-9b05abd08f2d": {
+                "id": "61936262-65e9-4dc1-911c-9b05abd08f2d",
+                "name": "How much better is Model X than Model Y at B1?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4450.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "26720dfb-a992-45b0-94cf-f5678a939df6": {
+                "id": "26720dfb-a992-45b0-94cf-f5678a939df6",
+                "name": "How large is the reading gap between these two models?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4480.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "2f837f84-3417-44b3-ada3-372350e47ed5": {
+                "id": "2f837f84-3417-44b3-ada3-372350e47ed5",
+                "name": "What are the strengths of Model X relative to Model Y?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4510.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "8e100b18-95ce-49c9-8384-1537ce72a0e7": {
+                "id": "8e100b18-95ce-49c9-8384-1537ce72a0e7",
+                "name": "Compare the scores of Model X and Model Y in every category.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4540.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a426f458-898e-4bcf-b97f-5485f24e1641": {
+                "id": "a426f458-898e-4bcf-b97f-5485f24e1641",
+                "name": "Where does Model Y beat Model X?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4570.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "181ccf71-4a45-46ab-8e5b-f134d799d01f": {
+                "id": "181ccf71-4a45-46ab-8e5b-f134d799d01f",
+                "name": "Put three chosen models side by side.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4600.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "67e2fc20-7e07-490e-b188-7ebc2ec5d34e": {
+                "id": "67e2fc20-7e07-490e-b188-7ebc2ec5d34e",
+                "name": "Contrast the two selected models on grammar.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4630.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "1a8c121e-8b8e-4b6a-aba2-5a5b1025be7f": {
+                "id": "1a8c121e-8b8e-4b6a-aba2-5a5b1025be7f",
+                "name": "Compare this model with that one at C2.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4660.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "42ef3d81-c9fa-4f9d-b2e5-1945abf59e7b": {
+                "id": "42ef3d81-c9fa-4f9d-b2e5-1945abf59e7b",
+                "name": "Compare these two models at C2 Grammar.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4690.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "ddc1e016-4931-4e77-99a4-ddbda013911d": {
+                "id": "ddc1e016-4931-4e77-99a4-ddbda013911d",
+                "name": "How does this LLM compare with the other at B2?",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4720.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "5d332830-cdfc-4dc9-bf6c-be956c0626da": {
+                "id": "5d332830-cdfc-4dc9-bf6c-be956c0626da",
+                "name": "Put these LLMs side by side at C1.",
+                "type": "AgentIntentBody",
+                "owner": "684f6fa6-c5d9-45cd-bf23-ae67b03b5681",
+                "bounds": {
+                  "x": 50.5,
+                  "y": 4750.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "d2a3c7c8-d9ee-4cf4-a281-57c371eae676": {
+                "id": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "name": "filter_results",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 360,
+                  "width": 560,
+                  "height": 670
+                },
+                "bodies": [
+                  "591f9218-f9e5-46f3-b8e1-958f3bfe0129",
+                  "c2706a40-f8d1-4494-a255-19b473cc5c7b",
+                  "9f3b92c5-4ae2-4687-a05a-2a17b5c6ba5f",
+                  "4a812cff-245a-416b-9a1f-9765039d582d",
+                  "850cbc4c-7f26-4f83-877c-cf24c2ab5e05",
+                  "29abf47d-8320-40ff-8aa3-3252b82d8af0",
+                  "37a4fe22-d53c-4cac-a519-9a1dffd28b03",
+                  "499e9af5-c1ba-4670-93ff-aba6edfdf71d",
+                  "eab054fa-9c0b-4f3e-927a-d39fe4f850aa",
+                  "f23abbe2-0706-40b6-a633-d5e13984bdd5",
+                  "9440911a-99a6-49c2-b0de-97a1e0a69f00",
+                  "09491575-a8c2-46a7-92cf-dc284a0e7afa",
+                  "aeb8d848-cdd6-4297-ae74-58216b1e3589",
+                  "c149c160-7f9d-4b75-bc7a-3caf051d7b57",
+                  "b021bf8b-a242-4957-955b-3c6e6fe6f031",
+                  "679ba48a-e73f-474b-917c-d310467c3b96",
+                  "95f3ff02-8c50-4b74-bcc4-6251e40d273f",
+                  "2418101e-c1ac-4cbc-8c33-bf7013edc8fa",
+                  "e019d447-db82-4f5a-8bb0-b3fea8a20ad0",
+                  "fa44f313-b4a7-4a67-a8f6-c7727f0389b9"
+                ],
+                "intent_description": "User wants to apply filters to the leaderboard display."
+              },
+              "591f9218-f9e5-46f3-b8e1-958f3bfe0129": {
+                "id": "591f9218-f9e5-46f3-b8e1-958f3bfe0129",
+                "name": "Apply a filter for open-source models only.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 430.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "c2706a40-f8d1-4494-a255-19b473cc5c7b": {
+                "id": "c2706a40-f8d1-4494-a255-19b473cc5c7b",
+                "name": "Restrict what is visible to proprietary models.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 460.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "9f3b92c5-4ae2-4687-a05a-2a17b5c6ba5f": {
+                "id": "9f3b92c5-4ae2-4687-a05a-2a17b5c6ba5f",
+                "name": "Filter the leaderboard to B1 Vocabulary.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 490.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "4a812cff-245a-416b-9a1f-9765039d582d": {
+                "id": "4a812cff-245a-416b-9a1f-9765039d582d",
+                "name": "Narrow this page to C1 results.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 520.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "850cbc4c-7f26-4f83-877c-cf24c2ab5e05": {
+                "id": "850cbc4c-7f26-4f83-877c-cf24c2ab5e05",
+                "name": "Set the graph to A2 listening only.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 550.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "29abf47d-8320-40ff-8aa3-3252b82d8af0": {
+                "id": "29abf47d-8320-40ff-8aa3-3252b82d8af0",
+                "name": "I only want to see Listening Comprehension scores.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 580.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "37a4fe22-d53c-4cac-a519-9a1dffd28b03": {
+                "id": "37a4fe22-d53c-4cac-a519-9a1dffd28b03",
+                "name": "Exclude proprietary language models from the display.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 610.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "499e9af5-c1ba-4670-93ff-aba6edfdf71d": {
+                "id": "499e9af5-c1ba-4670-93ff-aba6edfdf71d",
+                "name": "Set the CEFR filter to C1.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 640.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "eab054fa-9c0b-4f3e-927a-d39fe4f850aa": {
+                "id": "eab054fa-9c0b-4f3e-927a-d39fe4f850aa",
+                "name": "Restrict the table to open-source models at B2.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 670.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "f23abbe2-0706-40b6-a633-d5e13984bdd5": {
+                "id": "f23abbe2-0706-40b6-a633-d5e13984bdd5",
+                "name": "Apply the selected model family filter.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 700.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "9440911a-99a6-49c2-b0de-97a1e0a69f00": {
+                "id": "9440911a-99a6-49c2-b0de-97a1e0a69f00",
+                "name": "Change the category filter to Vocabulary.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 730.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "09491575-a8c2-46a7-92cf-dc284a0e7afa": {
+                "id": "09491575-a8c2-46a7-92cf-dc284a0e7afa",
+                "name": "Update the chart to show only C2 Grammar.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 760.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "aeb8d848-cdd6-4297-ae74-58216b1e3589": {
+                "id": "aeb8d848-cdd6-4297-ae74-58216b1e3589",
+                "name": "Filter out models scoring below fifty percent.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 790.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "c149c160-7f9d-4b75-bc7a-3caf051d7b57": {
+                "id": "c149c160-7f9d-4b75-bc7a-3caf051d7b57",
+                "name": "Hide everything below sixty percent.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 820.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "b021bf8b-a242-4957-955b-3c6e6fe6f031": {
+                "id": "b021bf8b-a242-4957-955b-3c6e6fe6f031",
+                "name": "Show just the models from one specific family.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 850.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "679ba48a-e73f-474b-917c-d310467c3b96": {
+                "id": "679ba48a-e73f-474b-917c-d310467c3b96",
+                "name": "Limit the displayed models to one model family.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 880.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "95f3ff02-8c50-4b74-bcc4-6251e40d273f": {
+                "id": "95f3ff02-8c50-4b74-bcc4-6251e40d273f",
+                "name": "Apply a filter for the A1 level.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 910.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "2418101e-c1ac-4cbc-8c33-bf7013edc8fa": {
+                "id": "2418101e-c1ac-4cbc-8c33-bf7013edc8fa",
+                "name": "Filter the chart to Grammar results.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 940.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "e019d447-db82-4f5a-8bb0-b3fea8a20ad0": {
+                "id": "e019d447-db82-4f5a-8bb0-b3fea8a20ad0",
+                "name": "Keep only models meeting the selected performance threshold.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 970.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "fa44f313-b4a7-4a67-a8f6-c7727f0389b9": {
+                "id": "fa44f313-b4a7-4a67-a8f6-c7727f0389b9",
+                "name": "Narrow the view to a specific model family.",
+                "type": "AgentIntentBody",
+                "owner": "d2a3c7c8-d9ee-4cf4-a281-57c371eae676",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1000.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "e975bd07-ef9a-4237-a83e-9d377dffdb66": {
+                "id": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "name": "explain_metric",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 1170,
+                  "width": 560,
+                  "height": 670
+                },
+                "bodies": [
+                  "ac573192-eb29-49d6-8d16-fb2e429c752d",
+                  "31cfc4a1-7a6a-4807-8f82-37978c114eb0",
+                  "ff3aa132-e28c-4da4-b85a-49126bb3b61c",
+                  "83b34fb2-837b-487e-9890-bcbbd3606c7b",
+                  "79cf0728-c951-4188-bdf0-733fea2e5d4c",
+                  "bd1e6283-73e4-4fc5-9cde-5e83b97e2477",
+                  "928fee53-f3fa-4fcd-a999-8e95ebbe1edd",
+                  "1acb4a9b-72c4-4759-80dd-b61eedff476e",
+                  "768437d0-9e28-4fba-8cdd-12e3b79045c8",
+                  "af677536-3598-4a41-8bc0-265ad0354d5b",
+                  "a7aa23dc-085d-47e8-9bcc-e5a5572f4a65",
+                  "bafdb323-b326-4d28-aae3-05ff1975208d",
+                  "b6086851-520c-421b-a3c3-c8d57b03bb8c",
+                  "8273187b-025b-4c0c-9a2f-2afd377ad8a4",
+                  "825ab3eb-7044-43e1-abf2-71c8259bb1cf",
+                  "7ef5584d-99af-40f7-914a-3dd80a47d386",
+                  "90e802a4-1335-47fb-a5c4-c2a8be104a2f",
+                  "07924a17-1c53-4ac9-b25a-7bb9c416d7ad",
+                  "a1becda2-aa65-4920-9576-14b61eae072c",
+                  "e00c6bfe-dbcc-45c4-a1fc-fce2790e2914"
+                ],
+                "intent_description": "User wants an explanation of a metric, CEFR level, or score interpretation."
+              },
+              "ac573192-eb29-49d6-8d16-fb2e429c752d": {
+                "id": "ac573192-eb29-49d6-8d16-fb2e429c752d",
+                "name": "What does CEFR stand for?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1240.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "31cfc4a1-7a6a-4807-8f82-37978c114eb0": {
+                "id": "31cfc4a1-7a6a-4807-8f82-37978c114eb0",
+                "name": "Define Listening Comprehension.",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1270.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "ff3aa132-e28c-4da4-b85a-49126bb3b61c": {
+                "id": "ff3aa132-e28c-4da4-b85a-49126bb3b61c",
+                "name": "Explain the A1 language proficiency level.",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1300.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "83b34fb2-837b-487e-9890-bcbbd3606c7b": {
+                "id": "83b34fb2-837b-487e-9890-bcbbd3606c7b",
+                "name": "What does C2 represent in language assessment?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1330.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "79cf0728-c951-4188-bdf0-733fea2e5d4c": {
+                "id": "79cf0728-c951-4188-bdf0-733fea2e5d4c",
+                "name": "What is meant by Vocabulary in this benchmark?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1360.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "bd1e6283-73e4-4fc5-9cde-5e83b97e2477": {
+                "id": "bd1e6283-73e4-4fc5-9cde-5e83b97e2477",
+                "name": "Describe the Grammar evaluation category.",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1390.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "928fee53-f3fa-4fcd-a999-8e95ebbe1edd": {
+                "id": "928fee53-f3fa-4fcd-a999-8e95ebbe1edd",
+                "name": "What does Reading Comprehension measure?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1420.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "1acb4a9b-72c4-4759-80dd-b61eedff476e": {
+                "id": "1acb4a9b-72c4-4759-80dd-b61eedff476e",
+                "name": "What is the difference between A1 and B1?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1450.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "768437d0-9e28-4fba-8cdd-12e3b79045c8": {
+                "id": "768437d0-9e28-4fba-8cdd-12e3b79045c8",
+                "name": "How is accuracy defined in language assessment?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1480.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "af677536-3598-4a41-8bc0-265ad0354d5b": {
+                "id": "af677536-3598-4a41-8bc0-265ad0354d5b",
+                "name": "How should I interpret a score of 80 percent?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1510.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a7aa23dc-085d-47e8-9bcc-e5a5572f4a65": {
+                "id": "a7aa23dc-085d-47e8-9bcc-e5a5572f4a65",
+                "name": "What does the B2 label signify?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1540.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "bafdb323-b326-4d28-aae3-05ff1975208d": {
+                "id": "bafdb323-b326-4d28-aae3-05ff1975208d",
+                "name": "What does an A2 label mean?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1570.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "b6086851-520c-421b-a3c3-c8d57b03bb8c": {
+                "id": "b6086851-520c-421b-a3c3-c8d57b03bb8c",
+                "name": "Explain the different CEFR language levels.",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1600.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "8273187b-025b-4c0c-9a2f-2afd377ad8a4": {
+                "id": "8273187b-025b-4c0c-9a2f-2afd377ad8a4",
+                "name": "What does the Total metric mean?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1630.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "825ab3eb-7044-43e1-abf2-71c8259bb1cf": {
+                "id": "825ab3eb-7044-43e1-abf2-71c8259bb1cf",
+                "name": "What skills are associated with the C1 level?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1660.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "7ef5584d-99af-40f7-914a-3dd80a47d386": {
+                "id": "7ef5584d-99af-40f7-914a-3dd80a47d386",
+                "name": "Define the Listening Comprehension metric.",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1690.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "90e802a4-1335-47fb-a5c4-c2a8be104a2f": {
+                "id": "90e802a4-1335-47fb-a5c4-c2a8be104a2f",
+                "name": "What is measured in the Reading Comprehension category?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1720.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "07924a17-1c53-4ac9-b25a-7bb9c416d7ad": {
+                "id": "07924a17-1c53-4ac9-b25a-7bb9c416d7ad",
+                "name": "What do the letters RC stand for here?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1750.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a1becda2-aa65-4920-9576-14b61eae072c": {
+                "id": "a1becda2-aa65-4920-9576-14b61eae072c",
+                "name": "How is accuracy different from language fluency?",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1780.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "e00c6bfe-dbcc-45c4-a1fc-fce2790e2914": {
+                "id": "e00c6bfe-dbcc-45c4-a1fc-fce2790e2914",
+                "name": "Interpret these percent-correct values for me.",
+                "type": "AgentIntentBody",
+                "owner": "e975bd07-ef9a-4237-a83e-9d377dffdb66",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 1810.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a59da10d-5147-483f-8c79-3bae006d4425": {
+                "id": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "name": "data_coverage",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 1980,
+                  "width": 560,
+                  "height": 670
+                },
+                "bodies": [
+                  "5ea49442-0f90-4c04-b84c-70e8b44f3299",
+                  "51200723-4809-41ee-ae35-19743f0e64a5",
+                  "54756f21-4b0c-44a7-a9be-c6fd748a1fb5",
+                  "57af8bbe-8ba3-4869-8b2e-f3a36f42b9b3",
+                  "6355172a-ff0a-4312-9511-4b49c86e853a",
+                  "789fb3b4-bbf2-496b-9b02-f9b2f9d08121",
+                  "b724b9d8-19c0-4c3f-bc90-6715c6f469a5",
+                  "4f829074-0ffd-44f2-b633-179938dc3d50",
+                  "3d23714e-4d34-4d98-87c9-5c8ec4b99d6f",
+                  "ba90f565-3918-4c90-84ef-8f79edd2f72a",
+                  "a2317fcc-4c38-4071-9c6f-3cb12abadfe3",
+                  "39265266-27a7-4fa9-b890-d8d009d45dd2",
+                  "8684c4e7-910b-4cb7-aadf-26997d3484f5",
+                  "0a8dcd0f-28c8-4f0d-87ef-ae95ec284803",
+                  "f62a7f90-74cd-4882-9bd1-41108f28653a",
+                  "d9eefc5e-359a-4238-a242-aed7308539c1",
+                  "46b04bc7-8f2f-49e9-9be5-a51382caa9eb",
+                  "f803b021-dc02-4a5b-8c0b-dad4a3adcb5f",
+                  "39947198-8470-4d93-afaa-3c5087818c45",
+                  "ba8ffa4b-e325-4120-86bb-b9cb3a9764d1"
+                ],
+                "intent_description": "User wants to know what models or data are in the leaderboard dataset."
+              },
+              "5ea49442-0f90-4c04-b84c-70e8b44f3299": {
+                "id": "5ea49442-0f90-4c04-b84c-70e8b44f3299",
+                "name": "How many models are included in the leaderboard?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2050.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "51200723-4809-41ee-ae35-19743f0e64a5": {
+                "id": "51200723-4809-41ee-ae35-19743f0e64a5",
+                "name": "What is the current number of listed LLMs?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2080.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "54756f21-4b0c-44a7-a9be-c6fd748a1fb5": {
+                "id": "54756f21-4b0c-44a7-a9be-c6fd748a1fb5",
+                "name": "How many LLMs are in the evaluation dataset?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2110.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "57af8bbe-8ba3-4869-8b2e-f3a36f42b9b3": {
+                "id": "57af8bbe-8ba3-4869-8b2e-f3a36f42b9b3",
+                "name": "What CEFR levels are covered by the evaluation?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2140.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "6355172a-ff0a-4312-9511-4b49c86e853a": {
+                "id": "6355172a-ff0a-4312-9511-4b49c86e853a",
+                "name": "Which language assessment categories are available?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2170.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "789fb3b4-bbf2-496b-9b02-f9b2f9d08121": {
+                "id": "789fb3b4-bbf2-496b-9b02-f9b2f9d08121",
+                "name": "Which language model families are represented?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2200.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "b724b9d8-19c0-4c3f-bc90-6715c6f469a5": {
+                "id": "b724b9d8-19c0-4c3f-bc90-6715c6f469a5",
+                "name": "What information is stored for each evaluated model?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2230.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "4f829074-0ffd-44f2-b633-179938dc3d50": {
+                "id": "4f829074-0ffd-44f2-b633-179938dc3d50",
+                "name": "Are all CEFR levels from A1 to C2 included?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2260.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "3d23714e-4d34-4d98-87c9-5c8ec4b99d6f": {
+                "id": "3d23714e-4d34-4d98-87c9-5c8ec4b99d6f",
+                "name": "What dimensions exist in the evaluation dataset?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2290.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "ba90f565-3918-4c90-84ef-8f79edd2f72a": {
+                "id": "ba90f565-3918-4c90-84ef-8f79edd2f72a",
+                "name": "Does Model X appear in the current dataset?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2320.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a2317fcc-4c38-4071-9c6f-3cb12abadfe3": {
+                "id": "a2317fcc-4c38-4071-9c6f-3cb12abadfe3",
+                "name": "Which levels have benchmark columns?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2350.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "39265266-27a7-4fa9-b890-d8d009d45dd2": {
+                "id": "39265266-27a7-4fa9-b890-d8d009d45dd2",
+                "name": "How much information is exposed for each row?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2380.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "8684c4e7-910b-4cb7-aadf-26997d3484f5": {
+                "id": "8684c4e7-910b-4cb7-aadf-26997d3484f5",
+                "name": "Is Model X included in the leaderboard?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2410.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "0a8dcd0f-28c8-4f0d-87ef-ae95ec284803": {
+                "id": "0a8dcd0f-28c8-4f0d-87ef-ae95ec284803",
+                "name": "What is the scope of the available evaluation data?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2440.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "f62a7f90-74cd-4882-9bd1-41108f28653a": {
+                "id": "f62a7f90-74cd-4882-9bd1-41108f28653a",
+                "name": "What models are available in the database?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2470.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "d9eefc5e-359a-4238-a242-aed7308539c1": {
+                "id": "d9eefc5e-359a-4238-a242-aed7308539c1",
+                "name": "Can you list the model families in the evaluation dataset?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2500.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "46b04bc7-8f2f-49e9-9be5-a51382caa9eb": {
+                "id": "46b04bc7-8f2f-49e9-9be5-a51382caa9eb",
+                "name": "Are parameter sizes available for the evaluated models?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2530.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "f803b021-dc02-4a5b-8c0b-dad4a3adcb5f": {
+                "id": "f803b021-dc02-4a5b-8c0b-dad4a3adcb5f",
+                "name": "Which benchmarks are represented here?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2560.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "39947198-8470-4d93-afaa-3c5087818c45": {
+                "id": "39947198-8470-4d93-afaa-3c5087818c45",
+                "name": "How many categories does the benchmark contain?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2590.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "ba8ffa4b-e325-4120-86bb-b9cb3a9764d1": {
+                "id": "ba8ffa4b-e325-4120-86bb-b9cb3a9764d1",
+                "name": "What data fields are recorded per model?",
+                "type": "AgentIntentBody",
+                "owner": "a59da10d-5147-483f-8c79-3bae006d4425",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2620.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "3108b471-4c2f-485c-beb1-d6551b0a1e54": {
+                "id": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "name": "reset_view",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 2790,
+                  "width": 560,
+                  "height": 670
+                },
+                "bodies": [
+                  "67e21603-c5ea-4db0-9392-d1dc9006d989",
+                  "28138498-397c-4122-b148-07d3f838741c",
+                  "77cc542c-fb5f-49ae-8131-70cc95e0e260",
+                  "a16fd6c2-8db6-48b1-a78d-606fc20a9ea3",
+                  "d7d502aa-cc24-485c-a9a1-9486eb7e2aa2",
+                  "d39afdd8-9893-4a5c-adac-d12a07262369",
+                  "94ce45c6-3d20-4516-b57c-abab0a58ef9c",
+                  "3f860dfb-f631-4521-99a3-336a1620bf8e",
+                  "fe803638-5296-467a-b9fe-b8aa455a77fd",
+                  "bdd5014c-5362-4efb-8137-7f17d35cdfce",
+                  "934eeb10-7683-495a-b4bb-b4986fce6156",
+                  "a3e7dd5a-318f-4984-b17a-343b1a728114",
+                  "fd04ba50-866f-403a-958f-b57b1071e3c0",
+                  "8e2fcf8e-fbcc-4a48-8676-04a9856f63d8",
+                  "e6d3186b-1ed5-4ba9-af1f-92a7f705ea82",
+                  "63a7b6b5-dd1b-43a1-a0b0-691dbf22e663",
+                  "32f06941-4e37-4536-b9b8-16a5eea489c4",
+                  "3ca8115d-1520-4123-9095-957d783a24f9",
+                  "fb63b3ee-bd1e-4ae4-8821-1ca7155ae578",
+                  "326f8499-2046-46e8-aaf4-a15026abb43d"
+                ],
+                "intent_description": "User wants to clear all filters and return to the default view."
+              },
+              "67e21603-c5ea-4db0-9392-d1dc9006d989": {
+                "id": "67e21603-c5ea-4db0-9392-d1dc9006d989",
+                "name": "Clear all active filters.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2860.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "28138498-397c-4122-b148-07d3f838741c": {
+                "id": "28138498-397c-4122-b148-07d3f838741c",
+                "name": "Undo the filtering changes.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2890.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "77cc542c-fb5f-49ae-8131-70cc95e0e260": {
+                "id": "77cc542c-fb5f-49ae-8131-70cc95e0e260",
+                "name": "Remove all filter restrictions.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2920.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a16fd6c2-8db6-48b1-a78d-606fc20a9ea3": {
+                "id": "a16fd6c2-8db6-48b1-a78d-606fc20a9ea3",
+                "name": "Reset the leaderboard to its default state.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2950.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "d7d502aa-cc24-485c-a9a1-9486eb7e2aa2": {
+                "id": "d7d502aa-cc24-485c-a9a1-9486eb7e2aa2",
+                "name": "Restore the original unfiltered view.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 2980.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "d39afdd8-9893-4a5c-adac-d12a07262369": {
+                "id": "d39afdd8-9893-4a5c-adac-d12a07262369",
+                "name": "Cancel my previous filter selections.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3010.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "94ce45c6-3d20-4516-b57c-abab0a58ef9c": {
+                "id": "94ce45c6-3d20-4516-b57c-abab0a58ef9c",
+                "name": "Remove the open-source filter.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3040.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "3f860dfb-f631-4521-99a3-336a1620bf8e": {
+                "id": "3f860dfb-f631-4521-99a3-336a1620bf8e",
+                "name": "Clear the selected performance threshold.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3070.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "fe803638-5296-467a-b9fe-b8aa455a77fd": {
+                "id": "fe803638-5296-467a-b9fe-b8aa455a77fd",
+                "name": "Return the chart to its initial state.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3100.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "bdd5014c-5362-4efb-8137-7f17d35cdfce": {
+                "id": "bdd5014c-5362-4efb-8137-7f17d35cdfce",
+                "name": "Restore the default filtering settings.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3130.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "934eeb10-7683-495a-b4bb-b4986fce6156": {
+                "id": "934eeb10-7683-495a-b4bb-b4986fce6156",
+                "name": "Reset the CEFR and category selections.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3160.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "a3e7dd5a-318f-4984-b17a-343b1a728114": {
+                "id": "a3e7dd5a-318f-4984-b17a-343b1a728114",
+                "name": "Undo every view restriction.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3190.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "fd04ba50-866f-403a-958f-b57b1071e3c0": {
+                "id": "fd04ba50-866f-403a-958f-b57b1071e3c0",
+                "name": "Remove all the applied filters.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3220.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "8e2fcf8e-fbcc-4a48-8676-04a9856f63d8": {
+                "id": "8e2fcf8e-fbcc-4a48-8676-04a9856f63d8",
+                "name": "Reset the results display to normal.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3250.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "e6d3186b-1ed5-4ba9-af1f-92a7f705ea82": {
+                "id": "e6d3186b-1ed5-4ba9-af1f-92a7f705ea82",
+                "name": "Go back to the default table view.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3280.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "63a7b6b5-dd1b-43a1-a0b0-691dbf22e663": {
+                "id": "63a7b6b5-dd1b-43a1-a0b0-691dbf22e663",
+                "name": "Remove the B2 Grammar filter.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3310.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "32f06941-4e37-4536-b9b8-16a5eea489c4": {
+                "id": "32f06941-4e37-4536-b9b8-16a5eea489c4",
+                "name": "Start over with the leaderboard filters.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3340.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "3ca8115d-1520-4123-9095-957d783a24f9": {
+                "id": "3ca8115d-1520-4123-9095-957d783a24f9",
+                "name": "Put the table back to how it was.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3370.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "fb63b3ee-bd1e-4ae4-8821-1ca7155ae578": {
+                "id": "fb63b3ee-bd1e-4ae4-8821-1ca7155ae578",
+                "name": "I want the original default graph again.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3400.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "326f8499-2046-46e8-aaf4-a15026abb43d": {
+                "id": "326f8499-2046-46e8-aaf4-a15026abb43d",
+                "name": "Take off the reading filter only.",
+                "type": "AgentIntentBody",
+                "owner": "3108b471-4c2f-485c-beb1-d6551b0a1e54",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3430.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "6731e2c7-d05b-4b94-be3c-4d269748d7e8": {
+                "id": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "name": "out_of_scope",
+                "type": "AgentIntent",
+                "owner": null,
+                "bounds": {
+                  "x": 900,
+                  "y": 3600,
+                  "width": 560,
+                  "height": 670
+                },
+                "bodies": [
+                  "9922af5b-cb55-449a-b915-bd28713ad167",
+                  "2b34d932-636a-4bd9-b90e-b6f5b9ec2259",
+                  "80ff8f31-e289-4cce-8412-ca00b08e4470",
+                  "0d66f45e-b1b1-4d7a-aaf8-cd279fbe5dbc",
+                  "d7d9fb20-fbcb-4947-91d8-a745e9161968",
+                  "66ae9fc8-98ed-4925-96bf-5881a5908bca",
+                  "29d5ff8f-b9ce-4c2d-9afd-efab8439faec",
+                  "f8c3173e-e709-4914-93f0-56de47619576",
+                  "b07eac27-a98b-4436-ac82-ab2e1ac1ccb4",
+                  "3edaecde-fbc6-4294-80d7-6e6f30a6d79b",
+                  "7df41969-7466-40e2-9036-9d962b7c3e26",
+                  "7bd10086-72df-4734-b783-ee9612f1f300",
+                  "f6eb0e6f-ff7d-4c74-b43d-15e86886cc76",
+                  "7221a7ef-3bb2-4d1e-86f8-1e89096fce6a",
+                  "4387411d-9e49-4c35-a6e4-8077a8b2eacc",
+                  "5736ae9e-0776-4ef0-a98e-d38e21b10c8a",
+                  "fcee4372-7521-41e0-9b10-12b4a968eaf4",
+                  "2f4719c2-5b03-44c9-9210-1abf5f150a2c",
+                  "be875412-8d14-40aa-8b30-6a157d50296a",
+                  "01938823-47e9-4071-b01f-bbb0c14c6a1a"
+                ],
+                "intent_description": "User's query is unrelated to the LëtzEval leaderboard."
+              },
+              "9922af5b-cb55-449a-b915-bd28713ad167": {
+                "id": "9922af5b-cb55-449a-b915-bd28713ad167",
+                "name": "What is the weather tomorrow?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3670.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "2b34d932-636a-4bd9-b90e-b6f5b9ec2259": {
+                "id": "2b34d932-636a-4bd9-b90e-b6f5b9ec2259",
+                "name": "Plan my holiday itinerary.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3700.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "80ff8f31-e289-4cce-8412-ca00b08e4470": {
+                "id": "80ff8f31-e289-4cce-8412-ca00b08e4470",
+                "name": "Write me a poem about Luxembourg.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3730.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "0d66f45e-b1b1-4d7a-aaf8-cd279fbe5dbc": {
+                "id": "0d66f45e-b1b1-4d7a-aaf8-cd279fbe5dbc",
+                "name": "What is the capital of France?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3760.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "d7d9fb20-fbcb-4947-91d8-a745e9161968": {
+                "id": "d7d9fb20-fbcb-4947-91d8-a745e9161968",
+                "name": "How do I book a flight?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3790.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "66ae9fc8-98ed-4925-96bf-5881a5908bca": {
+                "id": "66ae9fc8-98ed-4925-96bf-5881a5908bca",
+                "name": "Tell me a joke.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3820.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "29d5ff8f-b9ce-4c2d-9afd-efab8439faec": {
+                "id": "29d5ff8f-b9ce-4c2d-9afd-efab8439faec",
+                "name": "Who won the football match yesterday?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3850.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "f8c3173e-e709-4914-93f0-56de47619576": {
+                "id": "f8c3173e-e709-4914-93f0-56de47619576",
+                "name": "Debug an unrelated JavaScript library for me.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3880.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "b07eac27-a98b-4436-ac82-ab2e1ac1ccb4": {
+                "id": "b07eac27-a98b-4436-ac82-ab2e1ac1ccb4",
+                "name": "What is the current Bitcoin price?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3910.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "3edaecde-fbc6-4294-80d7-6e6f30a6d79b": {
+                "id": "3edaecde-fbc6-4294-80d7-6e6f30a6d79b",
+                "name": "Help me solve a mathematics homework problem.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3940.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "7df41969-7466-40e2-9036-9d962b7c3e26": {
+                "id": "7df41969-7466-40e2-9036-9d962b7c3e26",
+                "name": "How do I cook risotto?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 3970.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "7bd10086-72df-4734-b783-ee9612f1f300": {
+                "id": "7bd10086-72df-4734-b783-ee9612f1f300",
+                "name": "Recommend a restaurant in Luxembourg City.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4000.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "f6eb0e6f-ff7d-4c74-b43d-15e86886cc76": {
+                "id": "f6eb0e6f-ff7d-4c74-b43d-15e86886cc76",
+                "name": "How do I renew my passport?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4030.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "7221a7ef-3bb2-4d1e-86f8-1e89096fce6a": {
+                "id": "7221a7ef-3bb2-4d1e-86f8-1e89096fce6a",
+                "name": "Generate a marketing slogan for my shop.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4060.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "4387411d-9e49-4c35-a6e4-8077a8b2eacc": {
+                "id": "4387411d-9e49-4c35-a6e4-8077a8b2eacc",
+                "name": "Give me a recipe for chocolate cake.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4090.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "5736ae9e-0776-4ef0-a98e-d38e21b10c8a": {
+                "id": "5736ae9e-0776-4ef0-a98e-d38e21b10c8a",
+                "name": "What are the best tourist attractions in Paris?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4120.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "fcee4372-7521-41e0-9b10-12b4a968eaf4": {
+                "id": "fcee4372-7521-41e0-9b10-12b4a968eaf4",
+                "name": "Can you write a cover letter for a job?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4150.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "2f4719c2-5b03-44c9-9210-1abf5f150a2c": {
+                "id": "2f4719c2-5b03-44c9-9210-1abf5f150a2c",
+                "name": "Translate this essay from French to German.",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4180.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "be875412-8d14-40aa-8b30-6a157d50296a": {
+                "id": "be875412-8d14-40aa-8b30-6a157d50296a",
+                "name": "What time is it in Tokyo?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4210.5,
+                  "width": 559,
+                  "height": 30
+                }
+              },
+              "01938823-47e9-4071-b01f-bbb0c14c6a1a": {
+                "id": "01938823-47e9-4071-b01f-bbb0c14c6a1a",
+                "name": "How do I practice a conversation in French?",
+                "type": "AgentIntentBody",
+                "owner": "6731e2c7-d05b-4b94-be3c-4d269748d7e8",
+                "bounds": {
+                  "x": 900.5,
+                  "y": 4240.5,
+                  "width": 559,
+                  "height": 30
+                }
+              }
+            },
+            "relationships": {
+              "bee95126-a5b8-4396-bc76-b58e27345e04": {
+                "id": "bee95126-a5b8-4396-bc76-b58e27345e04",
+                "name": "",
+                "type": "AgentStateTransitionInit",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a019703c-985d-4645-afeb-1f3c924b95db",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false
+              },
+              "89a3be64-a9d9-48b1-a347-5bf3ebe7fceb": {
+                "id": "89a3be64-a9d9-48b1-a347-5bf3ebe7fceb",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "9a8aa66e-0b5e-4de5-a207-f8faa114de91",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "explain_leaderboard"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "2875d169-ae53-4181-aee6-0d3bdae1e8c4": {
+                "id": "2875d169-ae53-4181-aee6-0d3bdae1e8c4",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "05661f54-2441-409e-b3e1-ec10bda115e0",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "explain_methodology"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "553003ea-bd82-4edd-a122-e8cd518112ba": {
+                "id": "553003ea-bd82-4edd-a122-e8cd518112ba",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "71cea0ff-be59-4ec6-b5ab-85db6f9fb9dc",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "lookup_score"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "88003e1a-b556-4ee4-a834-0617d33859e0": {
+                "id": "88003e1a-b556-4ee4-a834-0617d33859e0",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "f6fc52a0-5bc4-44bb-8c90-7deeee034a88",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "rank_models"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "a4bd1a04-4fd0-4d40-b16e-e1bff6fdc01b": {
+                "id": "a4bd1a04-4fd0-4d40-b16e-e1bff6fdc01b",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "63f5d757-4937-431c-aa4c-66a8d207d080",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "compare_models"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "24e5d5b2-cc14-4c99-a029-0e8d5200ed74": {
+                "id": "24e5d5b2-cc14-4c99-a029-0e8d5200ed74",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "644d2d22-c385-4615-9ec0-027b036d44a7",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "filter_results"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "543c4aad-7942-4128-9065-437dbefae595": {
+                "id": "543c4aad-7942-4128-9065-437dbefae595",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "10f3d9ba-5b1c-4c85-9fd4-d7f8279f7022",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "explain_metric"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "c2970065-0a0c-4cd8-b3ac-8ecf7be9e0b7": {
+                "id": "c2970065-0a0c-4cd8-b3ac-8ecf7be9e0b7",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "5e98234a-5b70-467b-86a5-538c96696b25",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "data_coverage"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "c1686391-7932-4564-9821-14e93722e379": {
+                "id": "c1686391-7932-4564-9821-14e93722e379",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "4eb79bb0-239a-4eed-bee1-2bd51f505c28",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "reset_view"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "1e19d1ea-b452-4c48-ac21-4be8efb0331c": {
+                "id": "1e19d1ea-b452-4c48-ac21-4be8efb0331c",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "c5fad6f1-f043-47eb-9c03-9854036c637b",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_intent_matched",
+                  "intentName": "out_of_scope"
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "b6937c53-87a6-4750-be5a-4f5de8a3a962": {
+                "id": "b6937c53-87a6-4750-be5a-4f5de8a3a962",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "c5fad6f1-f043-47eb-9c03-9854036c637b",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "when_no_intent_matched",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "5e551945-4dff-4457-b983-25693cc10937": {
+                "id": "5e551945-4dff-4457-b983-25693cc10937",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "9a8aa66e-0b5e-4de5-a207-f8faa114de91",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "f139a734-4f33-4d85-99a5-e66b52aa3163": {
+                "id": "f139a734-4f33-4d85-99a5-e66b52aa3163",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "05661f54-2441-409e-b3e1-ec10bda115e0",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "18bdd77f-655f-45ce-9520-58a884b6da4e": {
+                "id": "18bdd77f-655f-45ce-9520-58a884b6da4e",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "71cea0ff-be59-4ec6-b5ab-85db6f9fb9dc",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "ae0c5cf6-7b96-41b2-9813-dfc5b5988a8e": {
+                "id": "ae0c5cf6-7b96-41b2-9813-dfc5b5988a8e",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "f6fc52a0-5bc4-44bb-8c90-7deeee034a88",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "787eece6-b27f-4e8a-98f3-dc621e85e3fc": {
+                "id": "787eece6-b27f-4e8a-98f3-dc621e85e3fc",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "63f5d757-4937-431c-aa4c-66a8d207d080",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "8d78679a-b7c4-4860-b506-873e588e2098": {
+                "id": "8d78679a-b7c4-4860-b506-873e588e2098",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "644d2d22-c385-4615-9ec0-027b036d44a7",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "a00bae53-f814-47cd-81e4-d00bca5cb840": {
+                "id": "a00bae53-f814-47cd-81e4-d00bca5cb840",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "10f3d9ba-5b1c-4c85-9fd4-d7f8279f7022",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "9c4c7577-84b3-4401-bc05-1fd35ed6d485": {
+                "id": "9c4c7577-84b3-4401-bc05-1fd35ed6d485",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "5e98234a-5b70-467b-86a5-538c96696b25",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "4acf1836-7211-40bf-a572-780deccf262f": {
+                "id": "4acf1836-7211-40bf-a572-780deccf262f",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "4eb79bb0-239a-4eed-bee1-2bd51f505c28",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              },
+              "8e2668b7-e9f9-40bc-a2ff-34ae7a407b2d": {
+                "id": "8e2668b7-e9f9-40bc-a2ff-34ae7a407b2d",
+                "name": "",
+                "type": "AgentStateTransition",
+                "owner": null,
+                "bounds": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                },
+                "path": [
+                  {
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "source": {
+                  "direction": "Right",
+                  "element": "c5fad6f1-f043-47eb-9c03-9854036c637b",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "target": {
+                  "direction": "Left",
+                  "element": "a90e1e16-2466-42fb-a01d-7f774db0a270",
+                  "bounds": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                "isManuallyLayouted": false,
+                "transitionType": "predefined",
+                "predefined": {
+                  "predefinedType": "auto",
+                  "conditionValue": ""
+                },
+                "custom": {
+                  "condition": []
+                }
+              }
+            },
+            "interactive": {
+              "elements": {},
+              "relationships": {}
+            },
+            "assessments": {},
+            "components": {}
+          },
+          "lastUpdate": "2026-10-29T07:05:59.000Z"
+        }
+      ]
+    },
+    "owner": "",
+    "createdAt": "2026-10-29T07:05:59.000Z",
+    "currentDiagramType": "AgentDiagram",
+    "currentDiagramIndices": {
+      "ClassDiagram": 0,
+      "ObjectDiagram": 0,
+      "StateMachineDiagram": 0,
+      "AgentDiagram": 0,
+      "UserDiagram": 0,
+      "GUINoCodeDiagram": 0,
+      "QuantumCircuitDiagram": 0,
+      "NNDiagram": 0,
+      "BPMN": 0,
+      "ComponentDiagram": 0,
+      "DeploymentDiagram": 0,
+      "KnowledgeGraphDiagram": 0
+    },
+    "settings": {
+      "defaultDiagramType": "AgentDiagram",
+      "autoSave": true,
+      "collaborationEnabled": false,
+      "perspectives": {
+        "ClassDiagram": true,
+        "ObjectDiagram": true,
+        "StateMachineDiagram": true,
+        "AgentDiagram": true,
+        "UserDiagram": true,
+        "GUINoCodeDiagram": true,
+        "QuantumCircuitDiagram": true,
+        "NNDiagram": true,
+        "BPMN": true,
+        "ComponentDiagram": true,
+        "DeploymentDiagram": true,
+        "KnowledgeGraphDiagram": true
+      }
+    }
+  },
+  "exportedAt": "2026-10-29T07:05:59.000Z",
+  "version": "2.0.0"
+}

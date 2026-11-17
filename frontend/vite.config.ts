@@ -10,4 +10,8 @@ export default defineConfig({
     outDir: "build",
     chunkSizeWarningLimit: 1500,
   },
+  test: {
+    globals: true,
+    environment: "node",
+  },
 });

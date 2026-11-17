@@ -1,0 +1,77 @@
+{
+  "theme": {
+    "switchToLight": "Passer en mode clair",
+    "switchToDark": "Passer en mode sombre",
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+  "footer": {
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "contact": "Contact",
+    "designedWith": "Conçu avec"
+  },
+  "table": {
+    "loading": "Chargement des données...",
+    "error": "Erreur lors du chargement des données",
+    "add": "Ajouter {{entity}}",
+    "addDefault": "Ajouter une entrée",
+    "edit": "Modifier {{entity}}",
+    "editDefault": "Modifier l'entrée",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "page": "Page {{current}} sur {{total}}",
+    "showing": "Affichage de {{visible}} sur {{total}} lignes",
+    "filtered": "filtré",
+    "noOptions": "Aucune option disponible",
+    "editTitle": "Modifier",
+    "requiredFields": "Veuillez remplir les champs obligatoires suivants : {{fields}}",
+    "saveFailed": "Échec de l'enregistrement. Veuillez vérifier votre saisie.",
+    "updateFailed": "Échec de la mise à jour. Veuillez vérifier votre saisie.",
+    "networkError": "Erreur réseau. Veuillez réessayer.",
+    "resetFilters": "Réinitialiser les filtres"
+  },
+  "filter": {
+    "buttonTitle": "Filtrer la colonne",
+    "title": "Filtrer {{column}}",
+    "operator": "Opérateur",
+    "value": "Valeur",
+    "clear": "Effacer",
+    "apply": "Appliquer",
+    "placeholder": "Saisir une valeur {{type}}...",
+    "selectPlaceholder": "Sélectionner...",
+    "true": "Vrai",
+    "false": "Faux",
+    "operators": {
+      "contains": "contient",
+      "equals": "égal à",
+      "startsWith": "commence par",
+      "endsWith": "se termine par",
+      "isEmpty": "est vide",
+      "isNotEmpty": "n'est pas vide",
+      "eq": "= (égal à)",
+      "ne": "≠ (différent de)",
+      "gt": "> (supérieur à)",
+      "gte": "≥ (supérieur ou égal à)",
+      "lt": "< (inférieur à)",
+      "lte": "≤ (inférieur ou égal à)"
+    }
+  },
+  "sort": {
+    "ascending": "Trier par ordre croissant",
+    "descending": "Trier par ordre décroissant"
+  },
+  "language": {
+    "selectLanguage": "Choisir la langue",
+    "languages": {
+      "en": "English",
+      "lb": "Lëtzebuergesch",
+      "fr": "Français",
+      "de": "Deutsch",
+      "it": "Italiano",
+      "pt": "Português"
+    }
+  }
+}

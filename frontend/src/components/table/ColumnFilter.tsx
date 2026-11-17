@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useTranslation } from "react-i18next";
 
 interface ColumnFilterProps {
   column: {
@@ -18,6 +19,7 @@ type FilterOperator =
   | "empty" | "not_empty"; // Special operators
 
 export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChange, currentValue }) => {
+  const { t } = useTranslation("common");
   const [isOpen, setIsOpen] = useState(false);
   
   // Parse current filter value (format: "operator:value")
@@ -66,32 +68,32 @@ export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChan
   const getOperators = (): { value: FilterOperator; label: string }[] => {
     if (dataType === "number" || dataType === "date" || dataType === "datetime" || dataType === "time") {
       return [
-        { value: "eq", label: "= (equals)" },
-        { value: "ne", label: "≠ (not equals)" },
-        { value: "gt", label: "> (greater than)" },
-        { value: "gte", label: "≥ (greater or equal)" },
-        { value: "lt", label: "< (less than)" },
-        { value: "lte", label: "≤ (less or equal)" },
-        { value: "empty", label: "is empty" },
-        { value: "not_empty", label: "is not empty" },
+        { value: "eq", label: t("filter.operators.eq") },
+        { value: "ne", label: t("filter.operators.ne") },
+        { value: "gt", label: t("filter.operators.gt") },
+        { value: "gte", label: t("filter.operators.gte") },
+        { value: "lt", label: t("filter.operators.lt") },
+        { value: "lte", label: t("filter.operators.lte") },
+        { value: "empty", label: t("filter.operators.isEmpty") },
+        { value: "not_empty", label: t("filter.operators.isNotEmpty") },
       ];
     }
-    
+
     if (dataType === "boolean") {
       return [
-        { value: "eq", label: "= (equals)" },
-        { value: "ne", label: "≠ (not equals)" },
+        { value: "eq", label: t("filter.operators.eq") },
+        { value: "ne", label: t("filter.operators.ne") },
       ];
     }
 
     // String operators
     return [
-      { value: "contains", label: "contains" },
-      { value: "equals", label: "equals" },
-      { value: "starts_with", label: "starts with" },
-      { value: "ends_with", label: "ends with" },
-      { value: "empty", label: "is empty" },
-      { value: "not_empty", label: "is not empty" },
+      { value: "contains", label: t("filter.operators.contains") },
+      { value: "equals", label: t("filter.operators.equals") },
+      { value: "starts_with", label: t("filter.operators.startsWith") },
+      { value: "ends_with", label: t("filter.operators.endsWith") },
+      { value: "empty", label: t("filter.operators.isEmpty") },
+      { value: "not_empty", label: t("filter.operators.isNotEmpty") },
     ];
   };
 
@@ -141,7 +143,7 @@ export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChan
           display: "inline-flex",
           alignItems: "center",
         }}
-        title="Filter column"
+        title={t("filter.buttonTitle")}
       >
         <svg 
           width="14" 
@@ -187,7 +189,7 @@ export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChan
             onClick={(e) => e.stopPropagation()}
           >
             <div style={{ marginBottom: "12px", fontSize: "12px", fontWeight: 600, color: "#334155" }}>
-              Filter {column.label}
+              {t("filter.title", { column: column.label })}
               <span style={{ fontSize: "11px", fontWeight: 400, color: "#64748b", marginLeft: "4px" }}>
                 ({dataType})
               </span>
@@ -195,7 +197,7 @@ export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChan
 
             <div style={{ marginBottom: "8px" }}>
               <label style={{ fontSize: "11px", color: "#64748b", display: "block", marginBottom: "4px" }}>
-                Operator
+                {t("filter.operator")}
               </label>
               <select
                 value={operator}
@@ -221,7 +223,7 @@ export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChan
             {needsValueInput && (
               <div style={{ marginBottom: "8px" }}>
                 <label style={{ fontSize: "11px", color: "#64748b", display: "block", marginBottom: "4px" }}>
-                  Value
+                  {t("filter.value")}
                 </label>
                 {dataType === "boolean" ? (
                   <select
@@ -238,16 +240,16 @@ export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChan
                     }}
                     autoFocus
                   >
-                    <option value="">Select...</option>
-                    <option value="true">True</option>
-                    <option value="false">False</option>
+                    <option value="">{t("filter.selectPlaceholder")}</option>
+                    <option value="true">{t("filter.true")}</option>
+                    <option value="false">{t("filter.false")}</option>
                   </select>
                 ) : (
                   <input
                     type={getInputType()}
                     value={filterValue}
                     onChange={(e) => setFilterValue(e.target.value)}
-                    placeholder={`Enter ${dataType} value...`}
+                    placeholder={t("filter.placeholder", { type: dataType })}
                     style={{
                       width: "100%",
                       padding: "6px 8px",
@@ -278,7 +280,7 @@ export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChan
                   fontWeight: 500,
                 }}
               >
-                Clear
+                {t("filter.clear")}
               </button>
               <button
                 type="button"
@@ -295,7 +297,7 @@ export const ColumnFilter: React.FC<ColumnFilterProps> = ({ column, onFilterChan
                   fontWeight: 500,
                 }}
               >
-                Apply
+                {t("filter.apply")}
               </button>
             </div>
           </div>

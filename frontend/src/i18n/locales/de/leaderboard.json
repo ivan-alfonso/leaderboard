@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "title": "WIE GUT VERSTEHEN LLMs LUXEMBURGISCH?"
+  },
+  "intro": {
+    "paragraph1": "Große Sprachmodelle (LLMs) haben die KI-Landschaft in den letzten Jahren grundlegend verändert. Sie werden immer mehr omnipräsent und sowohl von Privatpersonen als auch von Unternehmen genutzt. LLMs werden jedoch hauptsächlich für weit verbreitete Sprachen wie Englisch, Spanisch oder Deutsch entwickelt, während Sprachen wie Luxemburgisch dabei links liegen bleiben.",
+    "paragraph2": "In diesem Projekt haben wir versucht, die sprachlichen Fähigkeiten von LLMs im Luxemburgischen zu testen. In Zusammenarbeit mit dem Institut National des Langues Luxembourg (INLL) haben wir Sprachprüfungen eingesetzt, um die Leistung von aktuellen LLMs zu evaluieren."
+  },
+  "howItWorks": {
+    "title": "Wie funktioniert das?",
+    "body": "Mithilfe offizieller Sprachprüfungen, die von Experten des INLL entwickelt wurden, testen wir LLMs systematisch, indem wir sie jede Frage lösen lassen und ihre Gesamtleistung bewerten. Insgesamt gibt es 630 Multiple-Choice-Fragen, die jeweils einer von vier übergeordneten Kategorien (Vokabular, Grammatik, Leseverstehen, Hörverstehen) und einem CEFR-Niveau (A1, A2, B1, B2, C1, C2) zugeordnet sind. Die Leistung der LLMs für jede Kategorie und jedes CEFR-Niveau wird als Prozentsatz korrekt beantworteter Fragen ausgedrückt.",
+    "paperSentence": "Weitere Details zur Auswertungsmethodologie finden Sie im ",
+    "paperLinkText": "Paper"
+  },
+  "howToUse": {
+    "title": "Wie verwendet man dieses Leaderboard?",
+    "paragraph1": "Nachfolgend finden Sie das Bedienfeld zum Filtern des Leaderboards. Sie können ein gewünschtes CEFR-Niveau und eine Kategorie auswählen, um die Tabelle entsprechend zu filtern. Darüber hinaus können Sie wählen, ob nur Open-Weight oder Closed-Source-Modelle angezeigt werden sollen, eine bestimmte Sprachmodellfamilie auswählen (z. B. nur Llama-Modelle), einen bestimmten Größenbereich für LLM-Parameter festlegen oder Modelle anzeigen, die einen bestimmten Prozentsatz der Fragen korrekt beantwortet haben. Zur besseren Lesbarkeit werden die leistungsstärksten Modelle grün hervorgehoben.",
+    "paragraph2": "Unterhalb der Tabelle finden Sie ein Balkendiagramm, das die Leistung der LLMs für jede Kategorie und jedes CEFR-Niveau zeigt, um die Leistungen der LLMs besser vergleichen zu können."
+  },
+  "table": {
+    "title": "Modell-Leaderboard"
+  },
+  "chart": {
+    "title": "Modellleistungsvergleich",
+    "defaultTitle": "Modellleistungsmetriken",
+    "loading": "Metriken werden geladen...",
+    "error": "Modellmetriken konnten nicht geladen werden",
+    "noModels": "Keine Modelle entsprechen den gewählten Filtern",
+    "score": "Score",
+    "modelsCount": "{{count}} Modelle",
+    "metricNames": {
+      "total": "Gesamt",
+      "vocabulary": "Vokabular",
+      "readingComprehension": "Leseverstehen",
+      "listeningComprehension": "Hörverstehen",
+      "grammar": "Grammatik"
+    }
+  },
+  "filters": {
+    "title": "Modelle filtern",
+    "cefrLevel": "CEFR-Niveau",
+    "testCategory": "Testkategorie",
+    "modelType": "Modelltyp",
+    "sizeRange": "LLM-Größenbereich (Milliarden Parameter)",
+    "minPerformance": "Mindestleistung: {{value}}%",
+    "showMinPerf": "LLMs mit einer Mindestleistung von {{value}}% anzeigen",
+    "resetFilters": "Filter zurücksetzen",
+    "all": "Alle",
+    "vocabulary": "Vokabular",
+    "grammar": "Grammatik",
+    "readingComprehension": "Leseverstehen",
+    "listeningComprehension": "Hörverstehen",
+    "total": "Gesamt",
+    "openSource": "Open Source",
+    "proprietary": "Proprietär (Geschlossen)",
+    "to": "bis",
+    "billion": "Mrd."
+  }
+}
