@@ -284,7 +284,26 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
 
   const getMetricLabel = (level: string) => `${level} ${metricNameSuffix}`;
 
-  const baselineStroke = isDark ? colors.textMuted : "#000000";
+  const BaselineLabel = ({ viewBox, value }: any) => {
+    if (!viewBox) return null;
+    const { x, y, width } = viewBox;
+    return (
+      <text
+        x={x + width - 4}
+        y={y - 4}
+        textAnchor="end"
+        fontSize={10}
+        fontWeight={600}
+        stroke="#000000"
+        strokeWidth={3}
+        strokeLinejoin="round"
+        paintOrder="stroke"
+        fill="#ffffff"
+      >
+        {value}
+      </text>
+    );
+  };
 
   return (
     <div id={id} style={containerStyle}>
@@ -445,38 +464,40 @@ export const ModelMetricsBarChart: React.FC<Props> = ({
               iconSize={10}
             />
 
-            {/* Baseline reference line */}
+            {/* Baseline reference line — black border + white fill for readability */}
             {plotMode === "simple" && (
-              <ReferenceLine
-                y={34.6}
-                stroke={baselineStroke}
-                strokeDasharray="6 3"
-                strokeWidth={1.5}
-                label={{
-                  value: "Baseline 34.6%",
-                  position: "insideTopRight",
-                  fill: baselineStroke,
-                  fontSize: 10,
-                  fontWeight: 500,
-                  dy: -4,
-                }}
-              />
+              <>
+                <ReferenceLine
+                  y={34.6}
+                  stroke="#000000"
+                  strokeDasharray="6 3"
+                  strokeWidth={4}
+                />
+                <ReferenceLine
+                  y={34.6}
+                  stroke="#ffffff"
+                  strokeDasharray="6 3"
+                  strokeWidth={2}
+                  label={<BaselineLabel value="Baseline 34.6%" />}
+                />
+              </>
             )}
             {plotMode === "detailed" && filters.cefrLevel !== "All" && (
-              <ReferenceLine
-                y={cefrBaselines[filters.cefrLevel]}
-                stroke={baselineStroke}
-                strokeDasharray="6 3"
-                strokeWidth={1.5}
-                label={{
-                  value: `Baseline ${cefrBaselines[filters.cefrLevel]}%`,
-                  position: "insideTopRight",
-                  fill: baselineStroke,
-                  fontSize: 10,
-                  fontWeight: 500,
-                  dy: -4,
-                }}
-              />
+              <>
+                <ReferenceLine
+                  y={cefrBaselines[filters.cefrLevel]}
+                  stroke="#000000"
+                  strokeDasharray="6 3"
+                  strokeWidth={4}
+                />
+                <ReferenceLine
+                  y={cefrBaselines[filters.cefrLevel]}
+                  stroke="#ffffff"
+                  strokeDasharray="6 3"
+                  strokeWidth={2}
+                  label={<BaselineLabel value={`Baseline ${cefrBaselines[filters.cefrLevel]}%`} />}
+                />
+              </>
             )}
 
             {/* Bars */}
